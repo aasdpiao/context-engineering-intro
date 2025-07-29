@@ -1,4 +1,4 @@
-// OAuth utilities for cookie-based approval and upstream OAuth flows
+// 基于 Cookie 批准和上游 OAuth 流程的 OAuth 工具
 
 import type { 
   AuthRequest, 
@@ -12,12 +12,12 @@ import type {
 const COOKIE_NAME = "mcp-approved-clients";
 const ONE_YEAR_IN_SECONDS = 31536000;
 
-// --- Helper Functions ---
+// --- 辅助函数 ---
 
 /**
- * Encodes arbitrary data to a URL-safe base64 string.
- * @param data - The data to encode (will be stringified).
- * @returns A URL-safe base64 encoded string.
+ * 将任意数据编码为 URL 安全的 base64 字符串。
+ * @param data - 要编码的数据（将被字符串化）。
+ * @returns URL 安全的 base64 编码字符串。
  */
 function _encodeState(data: any): string {
 	try {
@@ -32,9 +32,9 @@ function _encodeState(data: any): string {
 }
 
 /**
- * Decodes a URL-safe base64 string back to its original data.
- * @param encoded - The URL-safe base64 encoded string.
- * @returns The original data.
+ * 将 URL 安全的 base64 字符串解码回原始数据。
+ * @param encoded - URL 安全的 base64 编码字符串。
+ * @returns 原始数据。
  */
 function decodeState<T = any>(encoded: string): T {
 	try {
@@ -47,9 +47,9 @@ function decodeState<T = any>(encoded: string): T {
 }
 
 /**
- * Imports a secret key string for HMAC-SHA256 signing.
- * @param secret - The raw secret key string.
- * @returns A promise resolving to the CryptoKey object.
+ * 导入用于 HMAC-SHA256 签名的密钥字符串。
+ * @param secret - 原始密钥字符串。
+ * @returns 解析为 CryptoKey 对象的 Promise。
  */
 async function importKey(secret: string): Promise<CryptoKey> {
 	if (!secret) {
@@ -68,10 +68,10 @@ async function importKey(secret: string): Promise<CryptoKey> {
 }
 
 /**
- * Signs data using HMAC-SHA256.
- * @param key - The CryptoKey for signing.
- * @param data - The string data to sign.
- * @returns A promise resolving to the signature as a hex string.
+ * 使用 HMAC-SHA256 签名数据。
+ * @param key - 用于签名的 CryptoKey。
+ * @param data - 要签名的字符串数据。
+ * @returns 解析为十六进制字符串签名的 Promise。
  */
 async function signData(key: CryptoKey, data: string): Promise<string> {
 	const enc = new TextEncoder();
@@ -83,11 +83,11 @@ async function signData(key: CryptoKey, data: string): Promise<string> {
 }
 
 /**
- * Verifies an HMAC-SHA256 signature.
- * @param key - The CryptoKey for verification.
- * @param signatureHex - The signature to verify (hex string).
- * @param data - The original data that was signed.
- * @returns A promise resolving to true if the signature is valid, false otherwise.
+ * 验证 HMAC-SHA256 签名。
+ * @param key - 用于验证的 CryptoKey。
+ * @param signatureHex - 要验证的签名（十六进制字符串）。
+ * @param data - 被签名的原始数据。
+ * @returns 如果签名有效则解析为 true，否则为 false 的 Promise。
  */
 async function verifySignature(
 	key: CryptoKey,
@@ -109,10 +109,10 @@ async function verifySignature(
 }
 
 /**
- * Parses the signed cookie and verifies its integrity.
- * @param cookieHeader - The value of the Cookie header from the request.
- * @param secret - The secret key used for signing.
- * @returns A promise resolving to the list of approved client IDs if the cookie is valid, otherwise null.
+ * 解析已签名的 Cookie 并验证其完整性。
+ * @param cookieHeader - 来自请求的 Cookie 头的值。
+ * @param secret - 用于签名的密钥。
+ * @returns 如果 Cookie 有效则解析为已批准的客户端 ID 列表，否则为 null 的 Promise。
  */
 async function getApprovedClientsFromCookie(
 	cookieHeader: string | null,
@@ -162,16 +162,15 @@ async function getApprovedClientsFromCookie(
 	}
 }
 
-// --- Exported Functions ---
+// --- 导出函数 ---
 
 /**
- * Checks if a given client ID has already been approved by the user,
- * based on a signed cookie.
+ * 基于已签名的 Cookie 检查给定的客户端 ID 是否已被用户批准。
  *
- * @param request - The incoming Request object to read cookies from.
- * @param clientId - The OAuth client ID to check approval for.
- * @param cookieSecret - The secret key used to sign/verify the approval cookie.
- * @returns A promise resolving to true if the client ID is in the list of approved clients in a valid cookie, false otherwise.
+ * @param request - 用于读取 Cookie 的传入 Request 对象。
+ * @param clientId - 要检查批准状态的 OAuth 客户端 ID。
+ * @param cookieSecret - 用于签名/验证批准 Cookie 的密钥。
+ * @returns 如果客户端 ID 在有效 Cookie 的已批准客户端列表中则解析为 true，否则为 false 的 Promise。
  */
 export async function clientIdAlreadyApproved(
 	request: Request,
@@ -187,13 +186,13 @@ export async function clientIdAlreadyApproved(
 
 
 /**
- * Renders an approval dialog for OAuth authorization
- * The dialog displays information about the client and server
- * and includes a form to submit approval
+ * 为 OAuth 授权渲染批准对话框
+ * 对话框显示关于客户端和服务器的信息
+ * 并包含提交批准的表单
  *
- * @param request - The HTTP request
- * @param options - Configuration for the approval dialog
- * @returns A Response containing the HTML approval dialog
+ * @param request - HTTP 请求
+ * @param options - 批准对话框的配置
+ * @returns 包含 HTML 批准对话框的 Response
  */
 export function renderApprovalDialog(request: Request, options: ApprovalDialogOptions): Response {
 	const { client, server, state } = options;
@@ -524,13 +523,13 @@ export function renderApprovalDialog(request: Request, options: ApprovalDialogOp
 
 
 /**
- * Parses the form submission from the approval dialog, extracts the state,
- * and generates Set-Cookie headers to mark the client as approved.
+ * 解析来自批准对话框的表单提交，提取状态，
+ * 并生成 Set-Cookie 头以将客户端标记为已批准。
  *
- * @param request - The incoming POST Request object containing the form data.
- * @param cookieSecret - The secret key used to sign the approval cookie.
- * @returns A promise resolving to an object containing the parsed state and necessary headers.
- * @throws If the request method is not POST, form data is invalid, or state is missing.
+ * @param request - 包含表单数据的传入 POST Request 对象。
+ * @param cookieSecret - 用于签名批准 Cookie 的密钥。
+ * @returns 解析为包含解析状态和必要头的对象的 Promise。
+ * @throws 如果请求方法不是 POST、表单数据无效或状态缺失。
  */
 export async function parseRedirectApproval(
 	request: Request,
@@ -588,9 +587,9 @@ export async function parseRedirectApproval(
 }
 
 /**
- * Sanitizes HTML content to prevent XSS attacks
- * @param unsafe - The unsafe string that might contain HTML
- * @returns A safe string with HTML special characters escaped
+ * 清理 HTML 内容以防止 XSS 攻击
+ * @param unsafe - 可能包含 HTML 的不安全字符串
+ * @returns 转义了 HTML 特殊字符的安全字符串
  */
 function sanitizeHtml(unsafe: string): string {
 	return unsafe
@@ -601,13 +600,13 @@ function sanitizeHtml(unsafe: string): string {
 		.replace(/'/g, "&#039;");
 }
 
-// --- OAuth Helper Functions ---
+// --- OAuth 辅助函数 ---
 
 /**
- * Constructs an authorization URL for an upstream service.
+ * 为上游服务构建授权 URL。
  *
- * @param {UpstreamAuthorizeParams} options - The parameters for constructing the URL
- * @returns {string} The authorization URL.
+ * @param {UpstreamAuthorizeParams} options - 构建 URL 的参数
+ * @returns {string} 授权 URL。
  */
 export function getUpstreamAuthorizeUrl({
 	upstream_url,
@@ -626,10 +625,10 @@ export function getUpstreamAuthorizeUrl({
 }
 
 /**
- * Fetches an authorization token from an upstream service.
+ * 从上游服务获取授权令牌。
  *
- * @param {UpstreamTokenParams} options - The parameters for the token exchange
- * @returns {Promise<[string, null] | [null, Response]>} A promise that resolves to an array containing the access token or an error response.
+ * @param {UpstreamTokenParams} options - 令牌交换的参数
+ * @returns {Promise<[string, null] | [null, Response]>} 解析为包含访问令牌或错误响应的数组的 Promise。
  */
 export async function fetchUpstreamAuthToken({
 	client_id,

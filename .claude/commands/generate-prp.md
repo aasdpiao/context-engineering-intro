@@ -1,69 +1,69 @@
-# Create PRP
+# 创建PRP
 
-## Feature file: $ARGUMENTS
+## 功能文件: $ARGUMENTS
 
-Generate a complete PRP for general feature implementation with thorough research. Ensure context is passed to the AI agent to enable self-validation and iterative refinement. Read the feature file first to understand what needs to be created, how the examples provided help, and any other considerations.
+通过全面研究为通用功能实现生成完整的PRP。确保将上下文传递给AI代理，以实现自我验证和迭代改进。首先阅读功能文件以了解需要创建什么、提供的示例如何帮助以及任何其他考虑因素。
 
-The AI agent only gets the context you are appending to the PRP and training data. Assuma the AI agent has access to the codebase and the same knowledge cutoff as you, so its important that your research findings are included or referenced in the PRP. The Agent has Websearch capabilities, so pass urls to documentation and examples.
+AI代理只能获得你附加到PRP的上下文和训练数据。假设AI代理可以访问代码库并具有与你相同的知识截止日期，因此将你的研究发现包含或引用在PRP中很重要。代理具有网络搜索功能，因此请传递文档和示例的URL。
 
-## Research Process
+## 研究过程
 
-1. **Codebase Analysis**
-   - Search for similar features/patterns in the codebase
-   - Identify files to reference in PRP
-   - Note existing conventions to follow
-   - Check test patterns for validation approach
+1. **代码库分析**
+   - 在代码库中搜索类似的功能/模式
+   - 识别要在PRP中引用的文件
+   - 注意要遵循的现有约定
+   - 检查验证方法的测试模式
 
-2. **External Research**
-   - Search for similar features/patterns online
-   - Library documentation (include specific URLs)
-   - Implementation examples (GitHub/StackOverflow/blogs)
-   - Best practices and common pitfalls
+2. **外部研究**
+   - 在线搜索类似的功能/模式
+   - 库文档（包含具体URL）
+   - 实现示例（GitHub/StackOverflow/博客）
+   - 最佳实践和常见陷阱
 
-3. **User Clarification** (if needed)
-   - Specific patterns to mirror and where to find them?
-   - Integration requirements and where to find them?
+3. **用户澄清**（如果需要）
+   - 要镜像的特定模式以及在哪里找到它们？
+   - 集成要求以及在哪里找到它们？
 
-## PRP Generation
+## PRP生成
 
-Using PRPs/templates/prp_base.md as template:
+使用PRPs/templates/prp_base.md作为模板：
 
-### Critical Context to Include and pass to the AI agent as part of the PRP
-- **Documentation**: URLs with specific sections
-- **Code Examples**: Real snippets from codebase
-- **Gotchas**: Library quirks, version issues
-- **Patterns**: Existing approaches to follow
+### 要包含并作为PRP一部分传递给AI代理的关键上下文
+- **文档**：带有特定章节的URL
+- **代码示例**：来自代码库的真实片段
+- **陷阱**：库的特殊情况、版本问题
+- **模式**：要遵循的现有方法
 
-### Implementation Blueprint
-- Start with pseudocode showing approach
-- Reference real files for patterns
-- Include error handling strategy
-- list tasks to be completed to fullfill the PRP in the order they should be completed
+### 实现蓝图
+- 从显示方法的伪代码开始
+- 引用真实文件的模式
+- 包含错误处理策略
+- 列出完成PRP需要完成的任务，按完成顺序排列
 
-### Validation Gates (Must be Executable) eg for python
+### 验证关卡（必须可执行）例如对于python
 ```bash
-# Syntax/Style
+# 语法/风格
 ruff check --fix && mypy .
 
-# Unit Tests
+# 单元测试
 uv run pytest tests/ -v
 
 ```
 
-*** CRITICAL AFTER YOU ARE DONE RESEARCHING AND EXPLORING THE CODEBASE BEFORE YOU START WRITING THE PRP ***
+*** 关键：在完成研究和探索代码库后，开始编写PRP之前 ***
 
-*** ULTRATHINK ABOUT THE PRP AND PLAN YOUR APPROACH THEN START WRITING THE PRP ***
+*** 深度思考PRP并规划你的方法，然后开始编写PRP ***
 
-## Output
-Save as: `PRPs/{feature-name}.md`
+## 输出
+保存为：`PRPs/{feature-name}.md`
 
-## Quality Checklist
-- [ ] All necessary context included
-- [ ] Validation gates are executable by AI
-- [ ] References existing patterns
-- [ ] Clear implementation path
-- [ ] Error handling documented
+## 质量检查清单
+- [ ] 包含所有必要的上下文
+- [ ] 验证关卡可由AI执行
+- [ ] 引用现有模式
+- [ ] 清晰的实现路径
+- [ ] 记录错误处理
 
-Score the PRP on a scale of 1-10 (confidence level to succeed in one-pass implementation using claude codes)
+对PRP进行1-10分评分（使用claude codes一次性实现成功的信心水平）
 
-Remember: The goal is one-pass implementation success through comprehensive context.
+记住：目标是通过全面的上下文实现一次性实现成功。

@@ -1,150 +1,176 @@
 ---
-name: "Template Generator PRP Base"
-description: "Meta-template for generating context engineering templates for specific technology domains and use cases"
+name: "模板生成器 PRP 基础"
+description: "用于为特定技术领域和用例生成上下文工程模板的元模板"
 ---
 
-## Purpose
+## 目的
 
-Template optimized for AI agents to generate complete context engineering template packages for specific technology domains (AI frameworks, frontend stacks, backend technologies, etc.) with comprehensive domain specialization and validation.
+为 AI 代理优化的模板，用于生成特定技术领域（AI 框架、前端技术栈、后端技术等）的完整上下文工程模板包，具有全面的领域专门化和验证功能。
 
-## Core Principles
+## 核心原则
 
-1. **Meta-Context Engineering**: Apply context engineering principles to generate domain-specific templates
-2. **Technology Specialization**: Deep integration with target framework patterns and conventions
-3. **Complete Package Generation**: Create entire template ecosystems, not just individual files
-4. **Validation-Driven**: Include comprehensive domain-appropriate testing and validation loops
-5. **Usability First**: Generate templates that are immediately usable by developers
+1. **元上下文工程**：应用上下文工程原则来生成特定领域的模板
+2. **技术专门化**：与目标框架模式和约定深度集成
+3. **完整包生成**：创建整个模板生态系统，而不仅仅是单个文件
+4. **验证驱动**：包含全面的领域适当的测试和验证循环
+5. **可用性优先**：生成开发者可以立即使用的模板
 
 ---
 
-## Goal
+## 目标
 
-Generate a complete context engineering template package for **[TARGET_TECHNOLOGY]** that includes:
+为 **[目标技术]** 生成完整的上下文工程模板包，包括：
 
-- Domain-specific CLAUDE.md implementation guide
-- Specialized PRP generation and execution commands
-- Technology-appropriate base PRP template
-- Comprehensive examples and documentation
-- Domain-specific validation loops and success criteria
+- 特定领域的 CLAUDE.md 实施指南
+- 专门的 PRP 生成和执行命令
+- 适合技术的基础 PRP 模板
+- 全面的示例和文档
+- 特定领域的验证循环和成功标准
 
-## Why
+## 原因
 
-- **Developer Acceleration**: Enable rapid application of context engineering to any technology
-- **Pattern Consistency**: Maintain context engineering principles across all domains
-- **Quality Assurance**: Ensure comprehensive validation and testing for each technology
-- **Knowledge Capture**: Document best practices and patterns for specific technologies
-- **Scalable Framework**: Create reusable templates that evolve with technology changes
+- **开发者加速**：使上下文工程能够快速应用于任何技术
+- **模式一致性**：在所有领域中保持上下文工程原则
+- **质量保证**：确保每种技术的全面验证和测试
+- **知识捕获**：记录特定技术的最佳实践和模式
+- **可扩展框架**：创建随技术变化而演进的可重用模板
 
-## What
+## 内容
 
-### Template Package Components
+### 模板包组件
 
-**Complete Directory Structure:**
+**完整目录结构：**
 ```
 use-cases/{technology-name}/
-├── CLAUDE.md                      # Domain implementation guide
+├── CLAUDE.md                      # 领域实施指南
 ├── .claude/commands/
-│   ├── generate-{technology}-prp.md  # Domain PRP generation
-│   └── execute-{technology}-prp.md   # Domain PRP execution  
+│   ├── generate-{technology}-prp.md  # 领域 PRP 生成
+│   └── execute-{technology}-prp.md   # 领域 PRP 执行  
 ├── PRPs/
 │   ├── templates/
-│   │   └── prp_{technology}_base.md  # Domain base PRP template
-│   ├── ai_docs/                      # Domain documentation (optional)
-│   └── INITIAL.md                    # Example feature request
-├── examples/                         # Domain code examples
-├── copy_template.py                  # Template deployment script
-└── README.md                         # Comprehensive usage guide
+│   │   └── prp_{technology}_base.md  # 领域基础 PRP 模板
+│   ├── ai_docs/                      # 领域文档（可选）
+│   └── INITIAL.md                    # 示例功能请求
+├── examples/                         # 领域代码示例
+├── copy_template.py                  # 模板部署脚本
+└── README.md                         # 全面的使用指南
 ```
 
-**Technology Integration:**
-- Framework-specific tooling and commands
-- Architecture patterns and conventions
-- Development workflow integration
-- Testing and validation approaches
-- Security and performance considerations
+**技术集成：**
+- 框架特定的工具和命令
+- 架构模式和约定
+- 开发工作流集成
+- 测试和验证方法
+- 安全和性能考虑
 
-**Context Engineering Adaptation:**
-- Domain-specific research processes
-- Technology-appropriate validation loops
-- Framework-specialized implementation blueprints
-- Integration with base context engineering principles
+**上下文工程适应：**
+- 特定领域的研究过程
+- 适合技术的验证循环
+- 框架专门化的实施蓝图
+- 与基础上下文工程原则的集成
 
-### Success Criteria
+### 成功标准
 
-- [ ] Complete template package structure generated
-- [ ] All required files present and properly formatted
-- [ ] Domain-specific content accurately represents technology patterns
-- [ ] Context engineering principles properly adapted to the technology
-- [ ] Validation loops appropriate and executable for the framework
-- [ ] Template immediately usable for creating projects in the domain
-- [ ] Integration with base context engineering framework maintained
-- [ ] Comprehensive documentation and examples included
+- [ ] 生成完整的模板包结构
+- [ ] 所有必需文件都存在且格式正确
+- [ ] 特定领域的内容准确表示技术模式
+- [ ] 上下文工程原则正确适应技术
+- [ ] 验证循环适当且可为框架执行
+- [ ] 模板可立即用于在该领域创建项目
+- [ ] 与基础上下文工程框架的集成得到维护
+- [ ] 包含全面的文档和示例
 
-## All Needed Context
+## 所需的所有上下文
 
-### Documentation & References (MUST READ)
+### 文档和参考资料（必读）
 
 ```yaml
-# CONTEXT ENGINEERING FOUNDATION - Understand the base framework
+# 上下文工程基础 - 理解基础框架
 - file: ../../../README.md
-  why: Core context engineering principles and workflow to adapt
+  why: 需要适应的核心上下文工程原则和工作流
 
 - file: ../../../.claude/commands/generate-prp.md
-  why: Base PRP generation patterns to specialize for domain
+  why: 需要为领域专门化的基础 PRP 生成模式
 
 - file: ../../../.claude/commands/execute-prp.md  
-  why: Base PRP execution patterns to adapt for technology
+  why: 需要为技术适应的基础 PRP 执行模式
 
 - file: ../../../PRPs/templates/prp_base.md
-  why: Base PRP template structure to specialize for domain
+  why: 需要为领域专门化的基础 PRP 模板结构
 
-# MCP SERVER EXAMPLE - Reference implementation of domain specialization
+# MCP 服务器示例 - 领域专门化的参考实现
 - file: ../mcp-server/CLAUDE.md
-  why: Example of domain-specific implementation guide patterns
+  why: 特定领域实施指南模式的示例
 
 - file: ../mcp-server/.claude/commands/prp-mcp-create.md
-  why: Example of specialized PRP generation command
+  why: 专门化 PRP 生成命令的示例
 
 - file: ../mcp-server/PRPs/templates/prp_mcp_base.md
-  why: Example of domain-specialized base PRP template
+  why: 领域专门化基础 PRP 模板的示例
 
-# TARGET TECHNOLOGY RESEARCH - Add domain-specific documentation
-- url: [OFFICIAL_FRAMEWORK_DOCS]
-  why: Core framework concepts, APIs, and architectural patterns
+# 目标技术研究 - 添加特定领域文档
+- url: [官方框架文档]
+  why: 核心框架概念、API 和架构模式
 
-- url: [BEST_PRACTICES_GUIDE]
-  why: Established patterns and conventions for the technology
+- url: [最佳实践指南]
+  why: 技术的既定模式和约定
 
-- url: [SECURITY_CONSIDERATIONS]
-  why: Security best practices and common vulnerabilities
+- url: [安全考虑]
+  why: 安全最佳实践和常见漏洞
 
-- url: [TESTING_FRAMEWORKS]
-  why: Testing approaches and validation patterns for the technology
+- url: [测试框架]
+  why: 技术的测试方法和验证模式
 
-- url: [DEPLOYMENT_PATTERNS]
-  why: Production deployment and monitoring considerations
+- url: [部署模式]
+  why: 生产部署和监控考虑
 ```
 
-### Current Context Engineering Structure
+### 当前上下文工程结构
 
 ```bash
-# Base framework structure to extend
+# 要扩展的基础框架结构
 context-engineering-intro/
-├── README.md                    # Core principles to adapt
-├── .claude/commands/            # Base commands to specialize
-├── PRPs/templates/prp_base.md   # Base template to extend
-├── CLAUDE.md                    # Base rules to inherit
+├── README.md                    # 要适应的核心原则
+├── .claude/commands/            # 要专门化的基础命令
+├── PRPs/templates/prp_base.md   # 要扩展的基础模板
+├── CLAUDE.md                    # 要继承的基础规则
 └── use-cases/
-    ├── mcp-server/              # Reference specialization example
-    └── template-generator/      # This meta-template system
+    ├── mcp-server/              # 参考专门化示例
+    └── template-generator/      # 这个元模板系统
 ```
 
-### Target Technology Analysis Requirements
+### 目标技术分析要求
+
+**关键：模板生成前必须进行网络研究。必须通过全面的网络搜索完成以下分析：**
+
+```yaml
+框架研究:
+  architecture_patterns: 技术如何构建应用程序和代码
+  development_workflow: 本地设置、开发服务器、构建过程
+  testing_approaches: 使用的测试框架和验证模式
+  package_management: 如何管理和安装依赖项
+  configuration_patterns: 技术如何处理配置和设置
+  deployment_strategies: 如何部署和分发应用程序
+  
+社区研究:
+  best_practices: 社区建立的模式和约定
+  common_gotchas: 已知问题、边缘情况和故障排除方法
+  security_considerations: 安全最佳实践和漏洞模式
+  performance_patterns: 优化技术和性能考虑
+  integration_approaches: 技术如何与其他工具集成
+  
+文档研究:
+  official_guides: 入门指南和官方文档
+  tutorial_patterns: 常见学习路径和教程结构
+  example_projects: 参考实现和启动模板
+  api_documentation: 核心 API 及其使用模式
+  troubleshooting_guides: 常见问题及其解决方案
+```
 
 ```typescript
-// Research areas for technology specialization
+// 技术专门化的研究领域
 interface TechnologyAnalysis {
-  // Core framework patterns
+  // 核心框架模式
   architecture: {
     project_structure: string[];
     configuration_files: string[];
@@ -152,7 +178,7 @@ interface TechnologyAnalysis {
     module_organization: string[];
   };
   
-  // Development workflow
+  // 开发工作流
   development: {
     package_manager: string;
     dev_server_commands: string[];
@@ -160,7 +186,7 @@ interface TechnologyAnalysis {
     testing_frameworks: string[];
   };
   
-  // Best practices
+  // 最佳实践
   patterns: {
     code_organization: string[];
     state_management: string[];
@@ -168,7 +194,7 @@ interface TechnologyAnalysis {
     performance_optimization: string[];
   };
   
-  // Integration points
+  // 集成点
   ecosystem: {
     common_libraries: string[];
     deployment_platforms: string[];
@@ -178,141 +204,141 @@ interface TechnologyAnalysis {
 }
 ```
 
-### Known Template Generation Patterns
+### 已知模板生成模式
 
 ```typescript
-// CRITICAL: Template generation must follow these patterns
+// 关键：模板生成必须遵循这些模式
 
-// 1. ALWAYS inherit from base context engineering principles
+// 1. 始终继承基础上下文工程原则
 const basePatterns = {
   prp_workflow: "INITIAL.md → generate-prp → execute-prp",
-  validation_loops: "syntax → unit → integration → deployment",
-  context_richness: "documentation + examples + patterns + gotchas"
+  validation_loops: "语法 → 单元 → 集成 → 部署",
+  context_richness: "文档 + 示例 + 模式 + 陷阱"
 };
 
-// 2. ALWAYS specialize for the target technology
+// 2. 始终为目标技术专门化
 const specialization = {
-  tooling: "Replace generic commands with framework-specific ones",
-  patterns: "Include framework architectural conventions",
-  validation: "Use technology-appropriate testing and linting",
-  examples: "Provide real, working code examples for the domain"
+  tooling: "用框架特定的命令替换通用命令",
+  patterns: "包含框架架构约定",
+  validation: "使用适合技术的测试和检查",
+  examples: "为领域提供真实的、可工作的代码示例"
 };
 
-// 3. ALWAYS maintain usability and completeness
+// 3. 始终保持可用性和完整性
 const quality_gates = {
-  immediate_usability: "Template works out of the box",
-  comprehensive_docs: "All patterns and gotchas documented",
-  working_examples: "Examples compile and run successfully",
-  validation_loops: "All validation commands are executable"
+  immediate_usability: "模板开箱即用",
+  comprehensive_docs: "所有模式和陷阱都有文档",
+  working_examples: "示例成功编译和运行",
+  validation_loops: "所有验证命令都可执行"
 };
 
-// 4. Common pitfalls to avoid
+// 4. 要避免的常见陷阱
 const anti_patterns = {
-  generic_content: "Don't use placeholder text - research actual patterns",
-  incomplete_research: "Don't skip technology-specific documentation",
-  broken_examples: "Don't include non-working code examples",
-  missing_validation: "Don't skip domain-appropriate testing patterns"
+  generic_content: "不要使用占位符文本 - 研究实际模式",
+  incomplete_research: "不要跳过技术特定的文档",
+  broken_examples: "不要包含不工作的代码示例",
+  missing_validation: "不要跳过适合领域的测试模式"
 };
 ```
 
-## Implementation Blueprint
+## 实施蓝图
 
-### Technology Research Phase
+### 技术研究阶段
 
-**CRITICAL: Web search extensively before any template generation. This is essential for success.**
+**关键：在任何模板生成之前都要进行广泛的网络搜索。这对成功至关重要。**
 
-Conduct comprehensive analysis of the target technology using web research:
+使用网络研究对目标技术进行全面分析：
 
 ```yaml
-Research Task 1 - Core Framework Analysis (WEB SEARCH REQUIRED):
-  WEB SEARCH and STUDY official documentation thoroughly:
-    - Framework architecture and design patterns  
-    - Project structure conventions and best practices
-    - Configuration file patterns and management approaches
-    - Package/dependency management for the technology
-    - Getting started guides and setup procedures
+研究任务 1 - 核心框架分析（需要网络搜索）:
+  网络搜索并彻底研究官方文档:
+    - 框架架构和设计模式  
+    - 项目结构约定和最佳实践
+    - 配置文件模式和管理方法
+    - 技术的包/依赖管理
+    - 入门指南和设置程序
 
-Research Task 2 - Development Workflow Analysis (WEB SEARCH REQUIRED):
-  WEB SEARCH and ANALYZE development patterns:
-    - Local development setup and tooling
-    - Build processes and compilation steps
-    - Testing frameworks commonly used with this technology
-    - Debugging tools and development environments
-    - CLI commands and package management workflows
+研究任务 2 - 开发工作流分析（需要网络搜索）:
+  网络搜索并分析开发模式:
+    - 本地开发设置和工具
+    - 构建过程和编译步骤
+    - 与此技术常用的测试框架
+    - 调试工具和开发环境
+    - CLI 命令和包管理工作流
 
-Research Task 3 - Best Practices Investigation (WEB SEARCH REQUIRED):
-  WEB SEARCH and RESEARCH established patterns:
-    - Code organization and file structure conventions
-    - Security best practices specific to this technology
-    - Common gotchas, pitfalls, and edge cases
-    - Error handling patterns and strategies
-    - Performance considerations and optimization techniques
+研究任务 3 - 最佳实践调查（需要网络搜索）:
+  网络搜索并研究既定模式:
+    - 代码组织和文件结构约定
+    - 特定于此技术的安全最佳实践
+    - 常见陷阱、缺陷和边缘情况
+    - 错误处理模式和策略
+    - 性能考虑和优化技术
 
-Research Task 4 - Template Package Structure Planning:
-  PLAN how to create context engineering template for this technology:
-    - How to adapt PRP framework for this specific technology
-    - What domain-specific CLAUDE.md rules are needed
-    - What validation loops are appropriate for this framework
-    - What examples and documentation should be included
+研究任务 4 - 模板包结构规划:
+  规划如何为此技术创建上下文工程模板:
+    - 如何为此特定技术适应 PRP 框架
+    - 需要什么特定领域的 CLAUDE.md 规则
+    - 什么验证循环适合此框架
+    - 应该包含什么示例和文档
 ```
 
-### Template Package Generation
+### 模板包生成
 
-Create complete context engineering template package based on web research findings:
+基于网络研究结果创建完整的上下文工程模板包：
 
 ```yaml
-Generation Task 1 - Create Template Directory Structure:
-  CREATE complete use case directory structure:
+生成任务 1 - 创建模板目录结构:
+  创建完整的用例目录结构:
     - use-cases/{technology-name}/
-    - .claude/commands/ subdirectory  
-    - PRPs/templates/ subdirectory
-    - examples/ subdirectory
-    - All other required subdirectories per template package requirements
+    - .claude/commands/ 子目录  
+    - PRPs/templates/ 子目录
+    - examples/ 子目录
+    - 根据模板包要求的所有其他必需子目录
 
-Generation Task 2 - Generate Domain-Specific CLAUDE.md:
-  CREATE technology-specific global rules file:
-    - Technology-specific tooling and package management commands
-    - Framework architectural patterns and conventions from web research
-    - Development workflow procedures specific to this technology
-    - Security and best practices discovered through research
-    - Common gotchas and integration points found in documentation
+生成任务 2 - 生成特定领域的 CLAUDE.md:
+  创建技术特定的全局规则文件:
+    - 技术特定的工具和包管理命令
+    - 来自网络研究的框架架构模式和约定
+    - 特定于此技术的开发工作流程序
+    - 通过研究发现的安全和最佳实践
+    - 在文档中找到的常见陷阱和集成点
 
-Generation Task 3 - Create Specialized Template PRP Commands:
-  GENERATE domain-specific slash commands:
-    - generate-{technology}-prp.md with technology research patterns
-    - execute-{technology}-prp.md with framework validation loops
-    - Commands should reference technology-specific patterns from research
-    - Include web search strategies specific to this technology domain
+生成任务 3 - 创建专门的模板 PRP 命令:
+  生成特定领域的斜杠命令:
+    - generate-{technology}-prp.md 包含技术研究模式
+    - execute-{technology}-prp.md 包含框架验证循环
+    - 命令应引用来自研究的技术特定模式
+    - 包含特定于此技术领域的网络搜索策略
 
-Generation Task 4 - Develop Domain-Specific Base PRP Template:
-  CREATE specialized prp_{technology}_base.md template:
-    - Pre-filled with technology context from web research
-    - Technology-specific success criteria and validation gates
-    - Framework documentation references found through research
-    - Domain-appropriate implementation patterns and validation loops
+生成任务 4 - 开发特定领域的基础 PRP 模板:
+  创建专门的 prp_{technology}_base.md 模板:
+    - 预填充来自网络研究的技术上下文
+    - 技术特定的成功标准和验证门槛
+    - 通过研究找到的框架文档引用
+    - 适合领域的实施模式和验证循环
 
-Generation Task 5 - Create Examples and INITIAL.md Template:
-  GENERATE comprehensive template package content:
-    - INITIAL.md example showing how to request features for this technology
-    - Working code examples relevant to the technology (from research)
-    - Configuration file templates and patterns
+生成任务 5 - 创建示例和 INITIAL.md 模板:
+  生成全面的模板包内容:
+    - INITIAL.md 示例，展示如何为此技术请求功能
+    - 与技术相关的工作代码示例（来自研究）
+    - 配置文件模板和模式
 
-Generation Task 6 - Create Template Copy Script:
-  CREATE Python script for template deployment:
-    - copy_template.py script that accepts target directory argument
-    - Copies entire template directory structure to specified location
-    - Includes all files: CLAUDE.md, commands, PRPs, examples, etc.
-    - Handles directory creation and file copying with error handling
-    - Simple command-line interface for easy usage
+生成任务 6 - 创建模板复制脚本:
+  创建用于模板部署的 Python 脚本:
+    - copy_template.py 脚本，接受目标目录参数
+    - 将整个模板目录结构复制到指定位置
+    - 包含所有文件：CLAUDE.md、命令、PRP、示例等
+    - 处理目录创建和文件复制，带有错误处理
+    - 简单的命令行界面，便于使用
 
-Generation Task 7 - Generate Comprehensive README:
-  CREATE comprehensive but concise README.md:
-    - Clear description of what this template is for and its purpose
-    - Explanation of the PRP framework workflow (3-step process)
-    - Template copy script usage instructions (prominently placed near top)
-    - Quick start guide with concrete examples
-    - Template structure overview showing all generated files
-    - Usage examples specific to this technology domain
+生成任务 7 - 生成全面的 README:
+  创建全面但简洁的 README.md:
+    - 清楚描述此模板的用途和目的
+    - 解释 PRP 框架工作流（3 步过程）
+    - 模板复制脚本使用说明（显著放置在顶部附近）
+    - 带有具体示例的快速入门指南
+    - 显示所有生成文件的模板结构概述
+    - 特定于此技术领域的使用示例
 ```
 
 ### Implementation Details for Copy Script and README
@@ -328,30 +354,30 @@ Generation Task 7 - Generate Comprehensive README:
 # 6. Simple usage: python copy_template.py /path/to/target
 ```
 
-**README Structure Requirements:**
+**README 结构要求:**
 ```markdown
-# Must include these sections in this order:
-# 1. Title and brief description of template purpose
-# 2. 🚀 Quick Start - Copy Template First (prominently at top)
-# 3. 📋 PRP Framework Workflow (3-step process explanation)
-# 4. 📁 Template Structure (directory tree with explanations)
-# 5. 🎯 What You Can Build (technology-specific examples)
-# 6. 📚 Key Features (framework capabilities)
-# 7. 🔍 Examples Included (working examples provided)
-# 8. 📖 Documentation References (research sources)
-# 9. 🚫 Common Gotchas (technology-specific pitfalls)
+# 必须按此顺序包含这些部分:
+# 1. 标题和模板目的的简要描述
+# 2. 🚀 快速开始 - 首先复制模板（在顶部显著位置）
+# 3. 📋 PRP 框架工作流（3 步过程说明）
+# 4. 📁 模板结构（带说明的目录树）
+# 5. 🎯 您可以构建什么（技术特定示例）
+# 6. 📚 关键功能（框架能力）
+# 7. 🔍 包含的示例（提供的工作示例）
+# 8. 📖 文档参考（研究来源）
+# 9. 🚫 常见陷阱（技术特定缺陷）
 
-# Copy script usage must be prominently featured near the top
-# PRP workflow must clearly show the 3 steps with actual commands
-# Everything should be technology-specific, not generic
+# 复制脚本使用必须在顶部附近显著展示
+# PRP 工作流必须清楚显示带有实际命令的 3 个步骤
+# 一切都应该是技术特定的，而不是通用的
 ```
 
-### Domain Specialization Details
+### 领域专业化详情
 
 ```typescript
-// Template specialization patterns for specific domains
+// 特定领域的模板专业化模式
 
-// For AI/ML Frameworks (Pydantic AI, CrewAI, etc.)
+// 用于 AI/ML 框架（Pydantic AI、CrewAI 等）
 const ai_specialization = {
   patterns: ["agent_architecture", "tool_integration", "model_configuration"],
   validation: ["model_response_testing", "agent_behavior_validation"],
@@ -359,7 +385,7 @@ const ai_specialization = {
   gotchas: ["token_limits", "model_compatibility", "async_patterns"]
 };
 
-// For Frontend Frameworks (React, Vue, Svelte, etc.)
+// 用于前端框架（React、Vue、Svelte 等）
 const frontend_specialization = {
   patterns: ["component_architecture", "state_management", "routing"],
   validation: ["component_testing", "e2e_testing", "accessibility"],
@@ -367,7 +393,7 @@ const frontend_specialization = {
   gotchas: ["bundle_size", "ssr_considerations", "performance"]
 };
 
-// For Backend Frameworks (FastAPI, Express, Django, etc.)
+// 用于后端框架（FastAPI、Express、Django 等）
 const backend_specialization = {
   patterns: ["api_design", "database_integration", "authentication"],
   validation: ["api_testing", "database_testing", "security_testing"],
@@ -375,7 +401,7 @@ const backend_specialization = {
   gotchas: ["security_vulnerabilities", "performance_bottlenecks", "scalability"]
 };
 
-// For Database/Data Frameworks (SQLModel, Prisma, etc.)
+// 用于数据库/数据框架（SQLModel、Prisma 等）
 const data_specialization = {
   patterns: ["schema_design", "migration_management", "query_optimization"],
   validation: ["schema_testing", "migration_testing", "query_performance"],
@@ -384,142 +410,142 @@ const data_specialization = {
 };
 ```
 
-### Integration Points
+### 集成点
 
 ```yaml
-CONTEXT_ENGINEERING_FRAMEWORK:
-  - base_workflow: Inherit core PRP generation and execution patterns from base framework
-  - validation_principles: Extend base validation with domain-specific checks for the technology
-  - documentation_standards: Maintain consistency with base context engineering documentation patterns
+上下文工程框架:
+  - 基础工作流: 从基础框架继承核心 PRP 生成和执行模式
+  - 验证原则: 使用技术特定检查扩展基础验证
+  - 文档标准: 与基础上下文工程文档模式保持一致性
 
-TECHNOLOGY_INTEGRATION:
-  - package_management: Include framework-specific package managers and tooling
-  - development_tools: Include technology-specific development and testing tools
-  - framework_patterns: Use technology-appropriate architectural and code patterns
-  - validation_approaches: Include framework-specific testing and validation methods
+技术集成:
+  - 包管理: 包含框架特定的包管理器和工具
+  - 开发工具: 包含技术特定的开发和测试工具
+  - 框架模式: 使用适合技术的架构和代码模式
+  - 验证方法: 包含框架特定的测试和验证方法
 
-TEMPLATE_STRUCTURE:
-  - directory_structure: Follow established use case template patterns from base framework
-  - file_naming: Maintain consistent naming conventions (generate-{tech}-prp.md, etc.)
-  - content_format: Use established markdown and documentation formats
-  - command_patterns: Extend base slash command functionality for the specific technology
+模板结构:
+  - 目录结构: 遵循基础框架的既定用例模板模式
+  - 文件命名: 保持一致的命名约定（generate-{tech}-prp.md 等）
+  - 内容格式: 使用既定的 markdown 和文档格式
+  - 命令模式: 为特定技术扩展基础斜杠命令功能
 ```
 
-## Validation Loop
+## 验证循环
 
-### Level 1: Template Structure Validation
+### 第 1 级：模板结构验证
 
 ```bash
-# CRITICAL: Verify complete template package structure
+# 关键：验证完整的模板包结构
 find use-cases/{technology-name} -type f | sort
 ls -la use-cases/{technology-name}/.claude/commands/
 ls -la use-cases/{technology-name}/PRPs/templates/
 
-# Verify copy script exists and is functional
+# 验证复制脚本存在且功能正常
 test -f use-cases/{technology-name}/copy_template.py
-python use-cases/{technology-name}/copy_template.py --help 2>/dev/null || echo "Copy script needs help option"
+python use-cases/{technology-name}/copy_template.py --help 2>/dev/null || echo "复制脚本需要帮助选项"
 
-# Expected: All required files present including copy_template.py
-# If missing: Generate missing files following established patterns
+# 预期：所有必需文件存在，包括 copy_template.py
+# 如果缺失：按照既定模式生成缺失文件
 ```
 
-### Level 2: Content Quality Validation
+### 第 2 级：内容质量验证
 
 ```bash
-# Verify domain-specific content accuracy
+# 验证领域特定内容准确性
 grep -r "TODO\|PLACEHOLDER\|{domain}" use-cases/{technology-name}/
 grep -r "{technology}" use-cases/{technology-name}/ | wc -l
 
-# Check for technology-specific patterns
+# 检查技术特定模式
 grep -r "framework-specific-pattern" use-cases/{technology-name}/
 grep -r "validation" use-cases/{technology-name}/.claude/commands/
 
-# Expected: No placeholder content, technology patterns present
-# If issues: Research and add proper domain-specific content
+# 预期：无占位符内容，技术模式存在
+# 如有问题：研究并添加适当的领域特定内容
 ```
 
-### Level 3: Functional Validation
+### 第 3 级：功能验证
 
 ```bash
-# Test template functionality
+# 测试模板功能
 cd use-cases/{technology-name}
 
-# Test PRP generation command
+# 测试 PRP 生成命令
 /generate-prp INITIAL.md
 ls PRPs/*.md | grep -v templates
 
-# Test template completeness
-grep -r "Context is King" . | wc -l  # Should inherit principles
-grep -r "{technology-specific}" . | wc -l  # Should have specializations
+# 测试模板完整性
+grep -r "Context is King" . | wc -l  # 应该继承原则
+grep -r "{technology-specific}" . | wc -l  # 应该有专门化
 
-# Expected: PRP generation works, content is specialized
-# If failing: Debug command patterns and template structure
+# 预期：PRP 生成工作，内容专门化
+# 如果失败：调试命令模式和模板结构
 ```
 
-### Level 4: Integration Testing
+### 第 4 级：集成测试
 
 ```bash
-# Verify integration with base context engineering framework
+# 验证与基础上下文工程框架的集成
 diff -r ../../.claude/commands/ .claude/commands/ | head -20
 diff ../../CLAUDE.md CLAUDE.md | head -20
 
-# Test template produces working results
+# 测试模板产生工作结果
 cd examples/
-# Run any example validation commands specific to the technology
+# 运行任何特定于技术的示例验证命令
 
-# Expected: Proper specialization without breaking base patterns
-# If issues: Adjust specialization to maintain compatibility
+# 预期：适当的专门化而不破坏基础模式
+# 如有问题：调整专门化以保持兼容性
 ```
 
-## Final Validation Checklist
+## 最终验证清单
 
-### Template Package Completeness
+### 模板包完整性
 
-- [ ] Complete directory structure: `tree use-cases/{technology-name}`
-- [ ] All required files present: CLAUDE.md, commands, base PRP, examples
-- [ ] Copy script present: `copy_template.py` with proper functionality
-- [ ] README comprehensive: Includes copy script instructions and PRP workflow
-- [ ] Domain-specific content: Technology patterns accurately represented
-- [ ] Working examples: All examples compile/run successfully
-- [ ] Documentation complete: README and usage instructions clear
+- [ ] 完整的目录结构：`tree use-cases/{technology-name}`
+- [ ] 所有必需文件存在：CLAUDE.md、命令、基础 PRP、示例
+- [ ] 复制脚本存在：具有适当功能的 `copy_template.py`
+- [ ] README 全面：包含复制脚本说明和 PRP 工作流
+- [ ] 领域特定内容：技术模式准确表示
+- [ ] 工作示例：所有示例成功编译/运行
+- [ ] 文档完整：README 和使用说明清晰
 
-### Quality and Usability
+### 质量和可用性
 
-- [ ] No placeholder content: `grep -r "TODO\|PLACEHOLDER"`
-- [ ] Technology specialization: Framework patterns properly documented
-- [ ] Validation loops work: All commands executable and functional
-- [ ] Integration maintained: Works with base context engineering framework
-- [ ] Ready for use: Developer can immediately start using template
+- [ ] 无占位符内容：`grep -r "TODO\|PLACEHOLDER"`
+- [ ] 技术专门化：框架模式正确记录
+- [ ] 验证循环工作：所有命令可执行且功能正常
+- [ ] 集成维护：与基础上下文工程框架兼容
+- [ ] 可立即使用：开发者可以立即开始使用模板
 
-### Framework Integration
+### 框架集成
 
-- [ ] Inherits base principles: Context engineering workflow preserved
-- [ ] Proper specialization: Technology-specific patterns included
-- [ ] Command compatibility: Slash commands work as expected
-- [ ] Documentation consistency: Follows established documentation patterns
-- [ ] Maintainable structure: Easy to update as technology evolves
+- [ ] 继承基础原则：上下文工程工作流得到保持
+- [ ] 适当的专门化：包含技术特定模式
+- [ ] 命令兼容性：斜杠命令按预期工作
+- [ ] 文档一致性：遵循既定的文档模式
+- [ ] 可维护结构：随着技术发展易于更新
 
 ---
 
-## Anti-Patterns to Avoid
+## 要避免的反模式
 
-### Template Generation
+### 模板生成
 
-- ❌ Don't create generic templates - always research and specialize deeply
-- ❌ Don't skip comprehensive technology research - understand frameworks thoroughly
-- ❌ Don't use placeholder content - always include real, researched information
-- ❌ Don't ignore validation loops - include comprehensive testing for the technology
+- ❌ 不要创建通用模板 - 始终深入研究和专门化
+- ❌ 不要跳过全面的技术研究 - 彻底理解框架
+- ❌ 不要使用占位符内容 - 始终包含真实的、经过研究的信息
+- ❌ 不要忽略验证循环 - 包含针对技术的全面测试
 
-### Content Quality
+### 内容质量
 
-- ❌ Don't assume knowledge - document everything explicitly for the domain
-- ❌ Don't skip edge cases - include common gotchas and error handling
-- ❌ Don't ignore security - always include security considerations for the technology
-- ❌ Don't forget maintenance - ensure templates can evolve with technology changes
+- ❌ 不要假设知识 - 为领域明确记录一切
+- ❌ 不要跳过边缘情况 - 包含常见陷阱和错误处理
+- ❌ 不要忽略安全性 - 始终包含技术的安全考虑
+- ❌ 不要忘记维护 - 确保模板能够随技术变化而演进
 
-### Framework Integration
+### 框架集成
 
-- ❌ Don't break base patterns - maintain compatibility with context engineering principles
-- ❌ Don't duplicate effort - reuse and extend base framework components
-- ❌ Don't ignore consistency - follow established naming and structure conventions
-- ❌ Don't skip validation - ensure templates actually work before completion
+- ❌ 不要破坏基础模式 - 保持与上下文工程原则的兼容性
+- ❌ 不要重复工作 - 重用和扩展基础框架组件
+- ❌ 不要忽略一致性 - 遵循既定的命名和结构约定
+- ❌ 不要跳过验证 - 确保模板在完成前实际工作

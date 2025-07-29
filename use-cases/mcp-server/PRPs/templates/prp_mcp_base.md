@@ -1,233 +1,233 @@
 ---
-name: "MCP Server PRP Template"
-description: This template is designed to provide a production-ready Model Context Protocol (MCP) server using the proven patterns from this codebase.
+name: "MCP 服务器 PRP 模板"
+description: 此模板旨在使用此代码库中经过验证的模式提供生产就绪的模型上下文协议 (MCP) 服务器。
 ---
 
-## Purpose
+## 目的
 
-Template optimized for AI agents to implement production-ready Model Context Protocol (MCP) servers with GitHub OAuth authentication, database integration, and Cloudflare Workers deployment using the proven patterns from this codebase.
+为 AI 智能体优化的模板，用于实现生产就绪的模型上下文协议 (MCP) 服务器，包含 GitHub OAuth 认证、数据库集成和 Cloudflare Workers 部署，使用此代码库中经过验证的模式。
 
-## Core Principles
+## 核心原则
 
-1. **Context is King**: Include ALL necessary MCP patterns, authentication flows, and deployment configurations
-2. **Validation Loops**: Provide executable tests from TypeScript compilation to production deployment
-3. **Security First**: Build-in authentication, authorization, and SQL injection protection
-4. **Production Ready**: Include monitoring, error handling, and deployment automation
+1. **上下文为王**：包含所有必要的 MCP 模式、认证流程和部署配置
+2. **验证循环**：提供从 TypeScript 编译到生产部署的可执行测试
+3. **安全优先**：内置认证、授权和 SQL 注入保护
+4. **生产就绪**：包含监控、错误处理和部署自动化
 
 ---
 
-## Goal
+## 目标
 
-Build a production-ready MCP (Model Context Protocol) server with:
+构建生产就绪的 MCP（模型上下文协议）服务器，包含：
 
-- [SPECIFIC MCP FUNCTIONALITY] - describe the specific tools and resources to implement
-- GitHub OAuth authentication with role-based access control
-- Cloudflare Workers deployment with monitoring
-- [ADDITIONAL FEATURES] - any specific features beyond the base authentication/database
+- [特定 MCP 功能] - 描述要实现的特定工具和资源
+- 带有基于角色访问控制的 GitHub OAuth 认证
+- 带有监控的 Cloudflare Workers 部署
+- [附加功能] - 基础认证/数据库之外的任何特定功能
 
-## Why
+## 原因
 
-- **Developer Productivity**: Enable secure AI assistant access to [SPECIFIC DATA/OPERATIONS]
-- **Enterprise Security**: GitHub OAuth with granular permission system
-- **Scalability**: Cloudflare Workers global edge deployment
-- **Integration**: [HOW THIS FITS WITH EXISTING SYSTEMS]
-- **User Value**: [SPECIFIC BENEFITS TO END USERS]
+- **开发者生产力**：为 AI 助手提供对 [特定数据/操作] 的安全访问
+- **企业安全**：带有细粒度权限系统的 GitHub OAuth
+- **可扩展性**：Cloudflare Workers 全球边缘部署
+- **集成**：[如何与现有系统集成]
+- **用户价值**：[对最终用户的特定好处]
 
-## What
+## 内容
 
-### MCP Server Features
+### MCP 服务器功能
 
-**Core MCP Tools:**
+**核心 MCP 工具：**
 
-- Tools are organized in modular files and registered via `src/tools/register-tools.ts`
-- Each feature/domain gets its own tool registration file (e.g., `database-tools.ts`, `analytics-tools.ts`)
-- [LIST SPECIFIC TOOLS] - e.g., "queryDatabase", "listTables", "executeOperations"
-- User authentication and permission validation happens during tool registration
-- Comprehensive error handling and logging
-- [DOMAIN-SPECIFIC TOOLS] - tools specific to your use case
+- 工具以模块化文件组织，通过 `src/tools/register-tools.ts` 注册
+- 每个功能/领域都有自己的工具注册文件（例如，`database-tools.ts`、`analytics-tools.ts`）
+- [列出特定工具] - 例如，"queryDatabase"、"listTables"、"executeOperations"
+- 用户认证和权限验证在工具注册期间进行
+- 全面的错误处理和日志记录
+- [领域特定工具] - 特定于您用例的工具
 
-**Authentication & Authorization:**
+**认证与授权：**
 
-- GitHub OAuth 2.0 integration with signed cookie approval system
-- Role-based access control (read-only vs privileged users)
-- User context propagation to all MCP tools
-- Secure session management with HMAC-signed cookies
+- 带有签名 cookie 批准系统的 GitHub OAuth 2.0 集成
+- 基于角色的访问控制（只读用户 vs 特权用户）
+- 用户上下文传播到所有 MCP 工具
+- 使用 HMAC 签名 cookie 的安全会话管理
 
-**Database Integration:**
+**数据库集成：**
 
-- PostgreSQL connection pooling with automatic cleanup
-- SQL injection protection and query validation
-- Read/write operation separation based on user permissions
-- Error sanitization to prevent information leakage
+- 带有自动清理的 PostgreSQL 连接池
+- SQL 注入保护和查询验证
+- 基于用户权限的读/写操作分离
+- 错误清理以防止信息泄露
 
-**Deployment & Monitoring:**
+**部署与监控：**
 
-- Cloudflare Workers with Durable Objects for state management
-- Optional Sentry integration for error tracking and performance monitoring
-- Environment-based configuration (development vs production)
-- Real-time logging and alerting
+- 带有 Durable Objects 状态管理的 Cloudflare Workers
+- 可选的 Sentry 集成用于错误跟踪和性能监控
+- 基于环境的配置（开发 vs 生产）
+- 实时日志记录和告警
 
-### Success Criteria
+### 成功标准
 
-- [ ] MCP server passes validation with MCP Inspector
-- [ ] GitHub OAuth flow works end-to-end (authorization → callback → MCP access)
-- [ ] TypeScript compilation succeeds with no errors
-- [ ] Local development server starts and responds correctly
-- [ ] Production deployment to Cloudflare Workers succeeds
-- [ ] Authentication prevents unauthorized access to sensitive operations
-- [ ] Error handling provides user-friendly messages without leaking system details
-- [ ] [DOMAIN-SPECIFIC SUCCESS CRITERIA]
+- [ ] MCP 服务器通过 MCP Inspector 验证
+- [ ] GitHub OAuth 流程端到端工作（授权 → 回调 → MCP 访问）
+- [ ] TypeScript 编译成功且无错误
+- [ ] 本地开发服务器启动并正确响应
+- [ ] 成功部署到 Cloudflare Workers 生产环境
+- [ ] 认证阻止对敏感操作的未授权访问
+- [ ] 错误处理提供用户友好的消息而不泄露系统详细信息
+- [ ] [领域特定成功标准]
 
-## All Needed Context
+## 所需的所有上下文
 
-### Documentation & References (MUST READ)
+### 文档与参考资料（必读）
 
 ```yaml
-# CRITICAL MCP PATTERNS - Read these first
+# 关键 MCP 模式 - 首先阅读这些
 - docfile: PRPs/ai_docs/mcp_patterns.md
-  why: Core MCP development patterns, security practices, and error handling
+  why: 核心 MCP 开发模式、安全实践和错误处理
 
-# Critial code examples
+# 关键代码示例
 - docfile: PRPs/ai_docs/claude_api_usage.md
-  why: How to use the Anthropic API to get a response from an LLM
+  why: 如何使用 Anthropic API 从 LLM 获取响应
 
-# TOOL REGISTRATION SYSTEM - Understand the modular approach
+# 工具注册系统 - 理解模块化方法
 - file: src/tools/register-tools.ts
-  why: Central registry showing how all tools are imported and registered - STUDY this pattern
+  why: 显示所有工具如何导入和注册的中央注册表 - 研究此模式
 
-# EXAMPLE MCP TOOLS - Look here how to create and register new tools
+# MCP 工具示例 - 查看如何创建和注册新工具
 - file: examples/database-tools.ts
-  why: Example tools for a Postgres MCP server showing best practices for tool creation and registration
+  why: Postgres MCP 服务器的示例工具，展示工具创建和注册的最佳实践
 
 - file: examples/database-tools-sentry.ts
-  why: Example tools for the Postgres MCP server but with the Sentry integration for production monitoring
+  why: Postgres MCP 服务器的示例工具，但集成了 Sentry 用于生产监控
 
-# EXISTING CODEBASE PATTERNS - Study these implementations
+# 现有代码库模式 - 研究这些实现
 - file: src/index.ts
-  why: Complete MCP server with authentication, database, and tools - MIRROR this pattern
+  why: 带有认证、数据库和工具的完整 MCP 服务器 - 镜像此模式
 
 - file: src/github-handler.ts
-  why: OAuth flow implementation - USE this exact pattern for authentication
+  why: OAuth 流程实现 - 使用此确切模式进行认证
 
 - file: src/database.ts
-  why: Database security, connection pooling, SQL validation - FOLLOW these patterns
+  why: 数据库安全、连接池、SQL 验证 - 遵循这些模式
 
 - file: wrangler.jsonc
-  why: Cloudflare Workers configuration - COPY this pattern for deployment
+  why: Cloudflare Workers 配置 - 复制此模式进行部署
 
-# OFFICIAL MCP DOCUMENTATION
+# 官方 MCP 文档
 - url: https://modelcontextprotocol.io/docs/concepts/tools
-  why: MCP tool registration and schema definition patterns
+  why: MCP 工具注册和模式定义模式
 
 - url: https://modelcontextprotocol.io/docs/concepts/resources
-  why: MCP resource implementation if needed
+  why: 如果需要，MCP 资源实现
 
-# Add n documentation related to the users use case as needed below
+# 根据需要在下面添加与用户用例相关的文档
 ```
 
-### Current Codebase Tree (Run `tree -I node_modules` in project root)
+### 当前代码库树结构（在项目根目录运行 `tree -I node_modules`）
 
 ```bash
-# INSERT ACTUAL TREE OUTPUT HERE
+# 在此处插入实际的树输出
 /
 ├── src/
-│   ├── index.ts                 # Main authenticated MCP server ← STUDY THIS
-│   ├── index_sentry.ts         # Sentry monitoring version
-│   ├── simple-math.ts          # Basic MCP example ← GOOD STARTING POINT
-│   ├── github-handler.ts       # OAuth implementation ← USE THIS PATTERN
-│   ├── database.ts             # Database utilities ← SECURITY PATTERNS
-│   ├── utils.ts                # OAuth helpers
-│   ├── workers-oauth-utils.ts  # Cookie security system
-│   └── tools/                  # Tool registration system
-│       └── register-tools.ts   # Central tool registry ← UNDERSTAND THIS
+│   ├── index.ts                 # 主要的认证 MCP 服务器 ← 研究此文件
+│   ├── index_sentry.ts         # Sentry 监控版本
+│   ├── simple-math.ts          # 基础 MCP 示例 ← 良好的起点
+│   ├── github-handler.ts       # OAuth 实现 ← 使用此模式
+│   ├── database.ts             # 数据库工具 ← 安全模式
+│   ├── utils.ts                # OAuth 助手
+│   ├── workers-oauth-utils.ts  # Cookie 安全系统
+│   └── tools/                  # 工具注册系统
+│       └── register-tools.ts   # 中央工具注册表 ← 理解此文件
 ├── PRPs/
-│   ├── templates/prp_mcp_base.md  # This template
-│   └── ai_docs/                   # Implementation guides ← READ ALL
-├── examples/                   # Example tool implementations
-│   ├── database-tools.ts       # Database tools example ← FOLLOW PATTERN
-│   └── database-tools-sentry.ts # With Sentry monitoring
-├── wrangler.jsonc              # Cloudflare config ← COPY PATTERNS
-├── package.json                # Dependencies
-└── tsconfig.json               # TypeScript config
+│   ├── templates/prp_mcp_base.md  # 此模板
+│   └── ai_docs/                   # 实现指南 ← 阅读全部
+├── examples/                   # 示例工具实现
+│   ├── database-tools.ts       # 数据库工具示例 ← 遵循模式
+│   └── database-tools-sentry.ts # 带有 Sentry 监控
+├── wrangler.jsonc              # Cloudflare 配置 ← 复制模式
+├── package.json                # 依赖项
+└── tsconfig.json               # TypeScript 配置
 ```
 
-### Desired Codebase Tree (Files to add/modify) related to the users use case as needed below
+### 期望的代码库树结构（根据用户用例需要添加/修改的文件）
 
 ```bash
 
 ```
 
-### Known Gotchas & Critical MCP/Cloudflare Patterns
+### 已知陷阱和关键 MCP/Cloudflare 模式
 
 ```typescript
-// CRITICAL: Cloudflare Workers require specific patterns
-// 1. ALWAYS implement cleanup for Durable Objects
+// 关键：Cloudflare Workers 需要特定模式
+// 1. 始终为 Durable Objects 实现清理
 export class YourMCP extends McpAgent<Env, Record<string, never>, Props> {
   async cleanup(): Promise<void> {
-    await closeDb(); // CRITICAL: Close database connections
+    await closeDb(); // 关键：关闭数据库连接
   }
 
   async alarm(): Promise<void> {
-    await this.cleanup(); // CRITICAL: Handle Durable Object alarms
+    await this.cleanup(); // 关键：处理 Durable Object 告警
   }
 }
 
-// 2. ALWAYS validate SQL to prevent injection (use existing patterns)
-const validation = validateSqlQuery(sql); // from src/database.ts
+// 2. 始终验证 SQL 以防止注入（使用现有模式）
+const validation = validateSqlQuery(sql); // 来自 src/database.ts
 if (!validation.isValid) {
   return createErrorResponse(validation.error);
 }
 
-// 3. ALWAYS check permissions before sensitive operations
+// 3. 在敏感操作前始终检查权限
 const ALLOWED_USERNAMES = new Set(["admin1", "admin2"]);
 if (!ALLOWED_USERNAMES.has(this.props.login)) {
-  return createErrorResponse("Insufficient permissions");
+  return createErrorResponse("权限不足");
 }
 
-// 4. ALWAYS use withDatabase wrapper for connection management
+// 4. 始终使用 withDatabase 包装器进行连接管理
 return await withDatabase(this.env.DATABASE_URL, async (db) => {
-  // Database operations here
+  // 数据库操作在此处
 });
 
-// 5. ALWAYS use Zod for input validation
+// 5. 始终使用 Zod 进行输入验证
 import { z } from "zod";
 const schema = z.object({
   param: z.string().min(1).max(100),
 });
 
-// 6. TypeScript compilation requires exact interface matching
+// 6. TypeScript 编译需要精确的接口匹配
 interface Env {
   DATABASE_URL: string;
   GITHUB_CLIENT_ID: string;
   GITHUB_CLIENT_SECRET: string;
   OAUTH_KV: KVNamespace;
-  // Add your environment variables here
+  // 在此处添加您的环境变量
 }
 ```
 
-## Implementation Blueprint
+## 实现蓝图
 
-### Data Models & Types
+### 数据模型和类型
 
-Define TypeScript interfaces and Zod schemas for type safety and validation.
+定义 TypeScript 接口和 Zod 模式以确保类型安全和验证。
 
 ```typescript
-// User authentication props (inherited from OAuth)
+// 用户认证属性（从 OAuth 继承）
 type Props = {
-  login: string; // GitHub username
-  name: string; // Display name
-  email: string; // Email address
-  accessToken: string; // GitHub access token
+  login: string; // GitHub 用户名
+  name: string; // 显示名称
+  email: string; // 电子邮件地址
+  accessToken: string; // GitHub 访问令牌
 };
 
-// MCP tool input schemas (customize for your tools)
+// MCP 工具输入模式（为您的工具自定义）
 const YourToolSchema = z.object({
-  param1: z.string().min(1, "Parameter cannot be empty"),
+  param1: z.string().min(1, "参数不能为空"),
   param2: z.number().int().positive().optional(),
   options: z.object({}).optional(),
 });
 
-// Environment interface (add your variables)
+// 环境接口（添加您的变量）
 interface Env {
   DATABASE_URL: string;
   GITHUB_CLIENT_ID: string;
@@ -236,7 +236,7 @@ interface Env {
   // YOUR_SPECIFIC_ENV_VAR: string;
 }
 
-// Permission levels (customize for your use case)
+// 权限级别（为您的用例自定义）
 enum Permission {
   READ = "read",
   WRITE = "write",
@@ -244,81 +244,143 @@ enum Permission {
 }
 ```
 
-### List of Tasks (Complete in order)
+### 核心 MCP 代理类
+
+通过扩展基础 McpAgent 类来实现您的 MCP 服务器。
+
+```typescript
+export class YourMCP extends McpAgent<Env, Record<string, never>, Props> {
+  // 初始化您的 MCP 服务器
+  async initialize(): Promise<void> {
+    // 在此处注册您的工具
+    this.registerTool("your_tool", {
+      description: "描述您的工具功能",
+      inputSchema: YourToolSchema,
+      handler: this.handleYourTool.bind(this),
+    });
+
+    // 根据需要添加更多工具
+    this.registerTool("another_tool", {
+      description: "另一个工具描述",
+      inputSchema: AnotherToolSchema,
+      handler: this.handleAnotherTool.bind(this),
+    });
+  }
+
+  // 工具处理器实现
+  private async handleYourTool(
+    args: z.infer<typeof YourToolSchema>
+  ): Promise<ToolResponse> {
+    try {
+      // 验证权限
+      if (!this.hasPermission(Permission.READ)) {
+        return createErrorResponse("权限不足");
+      }
+
+      // 您的工具逻辑在此处
+      const result = await this.performYourOperation(args);
+      
+      return createSuccessResponse(result);
+    } catch (error) {
+      return createErrorResponse(`工具执行失败: ${error.message}`);
+    }
+  }
+
+  // 权限检查助手
+  private hasPermission(required: Permission): boolean {
+    // 实现您的权限逻辑
+    const userPermissions = this.getUserPermissions(this.props.login);
+    return userPermissions.includes(required);
+  }
+
+  // 清理资源（对 Cloudflare 至关重要）
+  async cleanup(): Promise<void> {
+    await closeDb();
+    // 添加其他清理逻辑
+  }
+
+  // 处理 Durable Object 告警
+  async alarm(): Promise<void> {
+    await this.cleanup();
+  }
+}
+```
+
+### 任务列表（按顺序完成）
 
 ```yaml
-Task 1 - Project Setup:
-  COPY wrangler.jsonc to wrangler-[server-name].jsonc:
-    - MODIFY name field to "[server-name]"
-    - ADD any new environment variables to vars section
-    - KEEP existing OAuth and database configuration
+任务 1 - 项目设置:
+  复制 wrangler.jsonc 到 wrangler-[server-name].jsonc:
+    - 修改 name 字段为 "[server-name]"
+    - 在 vars 部分添加任何新的环境变量
+    - 保留现有的 OAuth 和数据库配置
 
-  CREATE .dev.vars file (if not exists):
-    - ADD GITHUB_CLIENT_ID=your_client_id
-    - ADD GITHUB_CLIENT_SECRET=your_client_secret
-    - ADD DATABASE_URL=postgresql://...
-    - ADD COOKIE_ENCRYPTION_KEY=your_32_byte_key
-    - ADD any domain-specific environment variables
+  创建 .dev.vars 文件（如果不存在）:
+    - 添加 GITHUB_CLIENT_ID=your_client_id
+    - 添加 GITHUB_CLIENT_SECRET=your_client_secret
+    - 添加 DATABASE_URL=postgresql://...
+    - 添加 COOKIE_ENCRYPTION_KEY=your_32_byte_key
+    - 添加任何特定领域的环境变量
 
-Task 2 - GitHub OAuth App:
-  CREATE new GitHub OAuth app:
-    - SET homepage URL: https://your-worker.workers.dev
-    - SET callback URL: https://your-worker.workers.dev/callback
-    - COPY client ID and secret to .dev.vars
+任务 2 - GitHub OAuth 应用:
+  创建新的 GitHub OAuth 应用:
+    - 设置主页 URL: https://your-worker.workers.dev
+    - 设置回调 URL: https://your-worker.workers.dev/callback
+    - 复制客户端 ID 和密钥到 .dev.vars
 
-  OR REUSE existing OAuth app:
-    - UPDATE callback URL if using different subdomain
-    - VERIFY client ID and secret in environment
+  或重用现有的 OAuth 应用:
+    - 如果使用不同的子域名，更新回调 URL
+    - 验证环境中的客户端 ID 和密钥
 
-Task 3 - MCP Server Implementation:
-  CREATE src/[server-name].ts OR MODIFY src/index.ts:
-    - COPY class structure from src/index.ts
-    - MODIFY server name and version in McpServer constructor
-    - CALL registerAllTools(server, env, props) in init() method
-    - KEEP authentication and database patterns identical
+任务 3 - MCP 服务器实现:
+  创建 src/[server-name].ts 或修改 src/index.ts:
+    - 从 src/index.ts 复制类结构
+    - 在 McpServer 构造函数中修改服务器名称和版本
+    - 在 init() 方法中调用 registerAllTools(server, env, props)
+    - 保持认证和数据库模式相同
 
-  CREATE tool modules:
-    - CREATE new tool files following examples/database-tools.ts pattern
-    - EXPORT registration functions that accept (server, env, props)
-    - USE Zod schemas for input validation
-    - IMPLEMENT proper error handling with createErrorResponse
-    - ADD permission checking during tool registration
+  创建工具模块:
+    - 按照 examples/database-tools.ts 模式创建新的工具文件
+    - 导出接受 (server, env, props) 的注册函数
+    - 使用 Zod 模式进行输入验证
+    - 使用 createErrorResponse 实现适当的错误处理
+    - 在工具注册期间添加权限检查
 
-  UPDATE tool registry:
-    - MODIFY src/tools/register-tools.ts to import your new tools
-    - ADD your registration function call in registerAllTools()
+  更新工具注册表:
+    - 修改 src/tools/register-tools.ts 以导入您的新工具
+    - 在 registerAllTools() 中添加您的注册函数调用
 
-Task 4 - Database Integration (if needed):
-  USE existing database patterns from src/database.ts:
-    - IMPORT withDatabase, validateSqlQuery, isWriteOperation
-    - IMPLEMENT database operations with security validation
-    - SEPARATE read vs write operations based on user permissions
-    - USE formatDatabaseError for user-friendly error messages
+任务 4 - 数据库集成（如果需要）:
+  使用 src/database.ts 中的现有数据库模式:
+    - 导入 withDatabase、validateSqlQuery、isWriteOperation
+    - 使用安全验证实现数据库操作
+    - 基于用户权限分离读写操作
+    - 使用 formatDatabaseError 提供用户友好的错误消息
 
-Task 5 - Environment Configuration:
-  SETUP Cloudflare KV namespace:
-    - RUN: wrangler kv namespace create "OAUTH_KV"
-    - UPDATE wrangler.jsonc with returned namespace ID
+任务 5 - 环境配置:
+  设置 Cloudflare KV 命名空间:
+    - 运行: wrangler kv namespace create "OAUTH_KV"
+    - 使用返回的命名空间 ID 更新 wrangler.jsonc
 
-  SET production secrets:
-    - RUN: wrangler secret put GITHUB_CLIENT_ID
-    - RUN: wrangler secret put GITHUB_CLIENT_SECRET
-    - RUN: wrangler secret put DATABASE_URL
-    - RUN: wrangler secret put COOKIE_ENCRYPTION_KEY
+  设置生产密钥:
+    - 运行: wrangler secret put GITHUB_CLIENT_ID
+    - 运行: wrangler secret put GITHUB_CLIENT_SECRET
+    - 运行: wrangler secret put DATABASE_URL
+    - 运行: wrangler secret put COOKIE_ENCRYPTION_KEY
 
-Task 6 - Local Testing:
-  TEST basic functionality:
-    - RUN: wrangler dev
-    - VERIFY server starts without errors
-    - TEST OAuth flow: http://localhost:8792/authorize
-    - VERIFY MCP endpoint: http://localhost:8792/mcp
+任务 6 - 本地测试:
+  测试基本功能:
+    - 运行: wrangler dev
+    - 验证服务器启动无错误
+    - 测试 OAuth 流程: http://localhost:8792/authorize
+    - 验证 MCP 端点: http://localhost:8792/mcp
 
-Task 7 - Production Deployment:
-  DEPLOY to Cloudflare Workers:
-    - RUN: wrangler deploy
-    - VERIFY deployment success
-    - TEST production OAuth flow
-    - VERIFY MCP endpoint accessibility
+任务 7 - 生产部署:
+  部署到 Cloudflare Workers:
+    - 运行: wrangler deploy
+    - 验证部署成功
+    - 测试生产 OAuth 流程
+    - 验证 MCP 端点可访问性
 ```
 
 ### Per Task Implementation Details

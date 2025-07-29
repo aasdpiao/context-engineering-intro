@@ -1,32 +1,32 @@
-## FEATURE:
+## 功能特性：
 
-We want to create a MCP server using this repos template
+我们希望使用此仓库模板创建一个 MCP 服务器
 
-The goal of the MCP server is to create a simple version of taskmaster mcp that instead of parsing PRDs we parse PRPs.
+MCP 服务器的目标是创建一个简化版本的 taskmaster mcp，但不是解析 PRD，而是解析 PRP。
 
-Additional features:
+附加功能：
 
-- LLM powered PRP information extraction using anthropic
-- Crud operation on tasks, documentation, tags, etc to and from the DB
+- 使用 Anthropic 的 LLM 驱动的 PRP 信息提取
+- 对任务、文档、标签等进行数据库的增删改查操作
 
-We need tools for parsing PRPs this tool should take a filled PRP and use anthropic to extract the tasks into tasks and save them to the db, including surrounding documentation from the prp like the goals what whys, target users, etc.
+我们需要用于解析 PRP 的工具，该工具应该接收一个填写完整的 PRP，并使用 Anthropic 将任务提取为任务并保存到数据库中，包括来自 PRP 的周边文档，如目标、原因、目标用户等。
 
-We need:
+我们需要：
 
-- To be able to perform CRUD operations on tasks, documentation, tags, etc
-- A task fetch tool to get the tasks from the
-- To be able to list all tasks
-- To be able to add information to a task
-- To be able to fetch the additional documentation from the db
-- To be able to modify the additional documentation
-- DB tables needs to be updated to match our new data models
+- 能够对任务、文档、标签等执行 CRUD 操作
+- 一个任务获取工具来从数据库获取任务
+- 能够列出所有任务
+- 能够向任务添加信息
+- 能够从数据库获取附加文档
+- 能够修改附加文档
+- 数据库表需要更新以匹配我们的新数据模型
 
-## EXAMPLES & DOCUMENTATION:
+## 示例和文档：
 
-All examples are already referenced in prp_mcp_base.md - do any additional research as needed.
+所有示例已在 prp_mcp_base.md 中引用 - 根据需要进行任何额外的研究。
 
-## OTHER CONSIDERATIONS:
+## 其他考虑事项：
 
-- Do not use complex regex or complex parsing patterns, we use an LLM to parse PRPs.
-- Model and API key for Anthropic both need to be environment variables - these are set up in .dev.vars.example
-- It's very important that we create one task per file to keep concerns separate
+- 不要使用复杂的正则表达式或复杂的解析模式，我们使用 LLM 来解析 PRP。
+- Anthropic 的模型和 API 密钥都需要是环境变量 - 这些在 .dev.vars.example 中设置
+- 非常重要的是，我们为每个文件创建一个任务以保持关注点分离

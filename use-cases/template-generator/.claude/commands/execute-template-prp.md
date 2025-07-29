@@ -1,165 +1,165 @@
-# Execute Template Generation PRP
+# 执行模板生成 PRP
 
-Execute a comprehensive template generation PRP to create a complete context engineering template package for a specific technology/framework.
+执行综合模板生成 PRP，为特定技术/框架创建完整的上下文工程模板包。
 
-## PRP File: $ARGUMENTS
+## PRP 文件: $ARGUMENTS
 
-## Execution Process
+## 执行流程
 
-1. **Load Template Generation PRP**
-   - Read the specified template generation PRP file completely
-   - Understand the target technology and all requirements
-   - Review all web research findings documented in the PRP
-   - Follow all instructions for template package creation
+1. **加载模板生成 PRP**
+   - 完整阅读指定的模板生成 PRP 文件
+   - 理解目标技术和所有要求
+   - 审查 PRP 中记录的所有网络研究发现
+   - 遵循模板包创建的所有指令
 
-2. **ULTRATHINK - Template Package Design**
-   - Create comprehensive implementation plan
-   - Plan the complete template package structure based on PRP research
-   - Design domain-specific context engineering adaptations
-   - Map technology patterns to context engineering principles
-   - Plan all required files and their relationships
+2. **ULTRATHINK - 模板包设计**
+   - 创建综合实施计划
+   - 基于 PRP 研究规划完整的模板包结构
+   - 设计领域特定的上下文工程适配
+   - 将技术模式映射到上下文工程原则
+   - 规划所有必需文件及其关系
 
-3. **Generate Complete Template Package**
-   - Create complete directory structure for the technology use case
-   - Generate domain-specific CLAUDE.md with global rules
-   - Create specialized template PRP generation and execution commands
-   - Develop domain-specific base PRP template with research findings
-   - Include comprehensive examples and documentation from web research
+3. **生成完整模板包**
+   - 为技术用例创建完整的目录结构
+   - 生成带有全局规则的领域特定 CLAUDE.md
+   - 创建专门的模板 PRP 生成和执行命令
+   - 开发带有研究发现的领域特定基础 PRP 模板
+   - 包含来自网络研究的综合示例和文档
 
-4. **Validate Template Package**
-   - Run all validation commands specified in the PRP
-   - Verify all required files are created and properly formatted
-   - Test template structure completeness and accuracy
-   - Check integration with base context engineering framework
+4. **验证模板包**
+   - 运行 PRP 中指定的所有验证命令
+   - 验证所有必需文件已创建并格式正确
+   - 测试模板结构的完整性和准确性
+   - 检查与基础上下文工程框架的集成
 
-5. **Quality Assurance**
-   - Ensure template follows all context engineering principles
-   - Verify domain-specific patterns are accurately represented
-   - Check validation loops are appropriate and executable for the technology
-   - Confirm template is immediately usable for the target technology
+5. **质量保证**
+   - 确保模板遵循所有上下文工程原则
+   - 验证领域特定模式得到准确表示
+   - 检查验证循环是否适合且可执行于该技术
+   - 确认模板可立即用于目标技术
 
-6. **Complete Implementation**
-   - Review template package against all PRP requirements
-   - Ensure all success criteria from the PRP are met
-   - Validate template is production-ready
+6. **完成实施**
+   - 根据所有 PRP 要求审查模板包
+   - 确保满足 PRP 的所有成功标准
+   - 验证模板已准备好投入生产
 
-## Template Package Requirements
+## 模板包要求
 
-Create a complete use case template with this exact structure:
+创建具有以下确切结构的完整用例模板：
 
-### Required Directory Structure
+### 必需目录结构
 ```
 use-cases/{technology-name}/
-├── CLAUDE.md                                    # Domain global rules
+├── CLAUDE.md                                    # 领域全局规则
 ├── .claude/commands/
-│   ├── generate-{technology}-prp.md            # Domain PRP generation
-│   └── execute-{technology}-prp.md             # Domain PRP execution
+│   ├── generate-{technology}-prp.md            # 领域 PRP 生成
+│   └── execute-{technology}-prp.md             # 领域 PRP 执行
 ├── PRPs/
 │   ├── templates/
-│   │   └── prp_{technology}_base.md            # Domain base PRP template
-│   ├── ai_docs/                                # Domain documentation (optional)
-│   └── INITIAL.md                              # Example feature request
-├── examples/                                   # Domain code examples
-├── copy_template.py                            # Template deployment script
-└── README.md                                   # Comprehensive usage guide
+│   │   └── prp_{technology}_base.md            # 领域基础 PRP 模板
+│   ├── ai_docs/                                # 领域文档（可选）
+│   └── INITIAL.md                              # 示例功能请求
+├── examples/                                   # 领域代码示例
+├── copy_template.py                            # 模板部署脚本
+└── README.md                                   # 综合使用指南
 ```
 
-### Content Requirements Based on PRP Research
+### 基于 PRP 研究的内容要求
 
-**CLAUDE.md** must include (global rules for the domain):
-- Technology-specific tooling and package management commands
-- Domain architectural patterns and conventions
-- Framework-specific development workflow procedures
-- Security and best practices specific to the technology
-- Common gotchas and integration points
+**CLAUDE.md** 必须包含（领域全局规则）：
+- 技术特定的工具和包管理命令
+- 领域架构模式和约定
+- 框架特定的开发工作流程序
+- 技术特定的安全和最佳实践
+- 常见陷阱和集成点
 
-**Domain PRP Commands** must include:
-- Technology-specific research processes and web search strategies
-- Domain documentation gathering approaches based on PRP findings
-- Framework-appropriate validation loops and testing patterns
-- Specialized implementation blueprints for the technology
+**领域 PRP 命令** 必须包含：
+- 技术特定的研究流程和网络搜索策略
+- 基于 PRP 发现的领域文档收集方法
+- 框架适当的验证循环和测试模式
+- 技术的专门实施蓝图
 
-**Base PRP Template** must include:
-- Pre-filled domain context from web research conducted in PRP
-- Technology-specific success criteria and validation gates
-- Framework-appropriate implementation patterns and examples
-- Domain-specialized documentation references and gotchas
+**基础 PRP 模板** 必须包含：
+- 来自 PRP 中进行的网络研究的预填充领域上下文
+- 技术特定的成功标准和验证门槛
+- 框架适当的实施模式和示例
+- 领域专门的文档引用和陷阱
 
-**Copy Script (copy_template.py)** must include:
-- Accept target directory as command line argument
-- Copy entire template directory structure to target location
-- Include ALL files: CLAUDE.md, .claude/, PRPs/, examples/, README.md
-- Handle directory creation and error handling gracefully
-- Provide clear success feedback with next steps
+**复制脚本 (copy_template.py)** 必须包含：
+- 接受目标目录作为命令行参数
+- 将整个模板目录结构复制到目标位置
+- 包含所有文件：CLAUDE.md、.claude/、PRPs/、examples/、README.md
+- 优雅地处理目录创建和错误处理
+- 提供清晰的成功反馈和后续步骤
 
-**README.md** must include:
-- Clear description of template purpose and capabilities
-- Copy script usage instructions (prominently placed near top)
-- Complete PRP framework workflow explanation (3-step process)
-- Template structure overview with file explanations
-- Technology-specific examples and capabilities
-- Common gotchas and troubleshooting guidance
+**README.md** 必须包含：
+- 模板目的和功能的清晰描述
+- 复制脚本使用说明（显著放置在顶部附近）
+- 完整的 PRP 框架工作流程解释（3步流程）
+- 带有文件解释的模板结构概述
+- 技术特定的示例和功能
+- 常见陷阱和故障排除指导
 
-## Validation Requirements
+## 验证要求
 
-### Structure Validation
+### 结构验证
 ```bash
-# Verify complete structure exists
+# 验证完整结构存在
 find use-cases/{technology-name} -type f -name "*.md" | sort
 ls -la use-cases/{technology-name}/.claude/commands/
 ls -la use-cases/{technology-name}/PRPs/templates/
 
-# Check required files exist
+# 检查必需文件存在
 test -f use-cases/{technology-name}/CLAUDE.md
 test -f use-cases/{technology-name}/README.md
 test -f use-cases/{technology-name}/PRPs/INITIAL.md
 test -f use-cases/{technology-name}/copy_template.py
 
-# Test copy script functionality
-python use-cases/{technology-name}/copy_template.py 2>&1 | grep -q "Usage:" || echo "Copy script needs proper usage message"
+# 测试复制脚本功能
+python use-cases/{technology-name}/copy_template.py 2>&1 | grep -q "Usage:" || echo "复制脚本需要适当的使用消息"
 ```
 
-### Content Validation
+### 内容验证
 ```bash
-# Check for incomplete content
+# 检查不完整内容
 grep -r "TODO\|PLACEHOLDER\|WEBSEARCH_NEEDED" use-cases/{technology-name}/
-grep -r "{technology}" use-cases/{technology-name}/ | wc -l  # Should be 0
+grep -r "{technology}" use-cases/{technology-name}/ | wc -l  # 应该为 0
 
-# Verify domain-specific content exists
+# 验证领域特定内容存在
 grep -r "framework\|library\|technology" use-cases/{technology-name}/CLAUDE.md
 grep -r "WebSearch\|web search" use-cases/{technology-name}/.claude/commands/
 
-# Verify README has required sections
+# 验证 README 有必需部分
 grep -q "Quick Start.*Copy Template" use-cases/{technology-name}/README.md
 grep -q "PRP Framework Workflow" use-cases/{technology-name}/README.md
 grep -q "python copy_template.py" use-cases/{technology-name}/README.md
 ```
 
-### Functionality Testing
+### 功能测试
 ```bash
-# Test template functionality
+# 测试模板功能
 cd use-cases/{technology-name}
 
-# Verify commands are properly named
+# 验证命令正确命名
 ls .claude/commands/ | grep "{technology}"
 
-# Test INITIAL.md example exists and is comprehensive
-wc -l PRPs/INITIAL.md  # Should be substantial, not just a few lines
+# 测试 INITIAL.md 示例存在且全面
+wc -l PRPs/INITIAL.md  # 应该是实质性的，不只是几行
 ```
 
-## Success Criteria
+## 成功标准
 
-- [ ] Complete template package structure created exactly as specified
-- [ ] All required files present and properly formatted
-- [ ] Domain-specific content accurately represents technology based on PRP research
-- [ ] Context engineering principles properly adapted for the technology
-- [ ] Validation loops appropriate and executable for the framework
-- [ ] Template package immediately usable for building projects in the domain
-- [ ] Integration with base context engineering framework maintained
-- [ ] All web research findings from PRP properly integrated into template
-- [ ] Examples and documentation comprehensive and technology-specific
-- [ ] Copy script (copy_template.py) functional and properly documented
-- [ ] README includes copy script instructions prominently at top
-- [ ] README explains complete PRP framework workflow with concrete examples
+- [ ] 完全按照指定创建完整的模板包结构
+- [ ] 所有必需文件存在且格式正确
+- [ ] 基于 PRP 研究，领域特定内容准确表示技术
+- [ ] 上下文工程原则适当适配于技术
+- [ ] 验证循环适当且可执行于框架
+- [ ] 模板包可立即用于在领域中构建项目
+- [ ] 与基础上下文工程框架的集成得到维护
+- [ ] 来自 PRP 的所有网络研究发现正确集成到模板中
+- [ ] 示例和文档全面且技术特定
+- [ ] 复制脚本 (copy_template.py) 功能正常且文档完善
+- [ ] README 在顶部显著包含复制脚本说明
+- [ ] README 用具体示例解释完整的 PRP 框架工作流程
 
-Note: If any validation fails, analyze the error, fix the template package components, and re-validate until all criteria pass. The template must be production-ready and immediately usable for developers working with the target technology.
+注意：如果任何验证失败，分析错误，修复模板包组件，并重新验证直到所有标准通过。模板必须准备好投入生产，并可立即用于使用目标技术的开发人员。

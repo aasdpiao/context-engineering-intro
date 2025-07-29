@@ -68,21 +68,21 @@ async function redirectToGithub(
 }
 
 /**
- * OAuth Callback Endpoint
+ * OAuth 回调端点
  *
- * This route handles the callback from GitHub after user authentication.
- * It exchanges the temporary code for an access token, then stores some
- * user metadata & the auth token as part of the 'props' on the token passed
- * down to the client. It ends by redirecting the client back to _its_ callback URL
+ * 此路由处理用户认证后来自 GitHub 的回调。
+ * 它将临时代码交换为访问令牌，然后将一些用户元数据和认证令牌
+ * 作为传递给客户端的令牌的 'props' 部分存储。
+ * 最后将客户端重定向回其自己的回调 URL
  */
 app.get("/callback", async (c) => {
-	// Get the oathReqInfo out of KV
+	// 从 KV 中获取 oauthReqInfo
 	const oauthReqInfo = JSON.parse(atob(c.req.query("state") as string)) as AuthRequest;
 	if (!oauthReqInfo.clientId) {
 		return c.text("Invalid state", 400);
 	}
 
-	// Exchange the code for an access token
+	// 将代码交换为访问令牌
 	const [accessToken, errResponse] = await fetchUpstreamAuthToken({
 		client_id: (c.env as any).GITHUB_CLIENT_ID,
 		client_secret: (c.env as any).GITHUB_CLIENT_SECRET,
@@ -92,16 +92,16 @@ app.get("/callback", async (c) => {
 	});
 	if (errResponse) return errResponse;
 
-	// Fetch the user info from GitHub
+	// 从 GitHub 获取用户信息
 	const user = await new Octokit({ auth: accessToken }).rest.users.getAuthenticated();
 	const { login, name, email } = user.data;
 
-	// Return back to the MCP client a new token
+	// 向 MCP 客户端返回新令牌
 	const { redirectTo } = await c.env.OAUTH_PROVIDER.completeAuthorization({
 		metadata: {
 			label: name,
 		},
-		// This will be available on this.props inside MyMCP
+		// 这将在 MyMCP 内部的 this.props 中可用
 		props: {
 			accessToken,
 			email,

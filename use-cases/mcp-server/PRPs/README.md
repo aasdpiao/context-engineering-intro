@@ -1,44 +1,44 @@
-# Product Requirement Prompt (PRP) Concept
+# 产品需求提示（PRP）概念
 
-"Over-specifying what to build while under-specifying the context, and how to build it, is why so many AI-driven coding attempts stall at 80%. A Product Requirement Prompt (PRP) fixes that by fusing the disciplined scope of a classic Product Requirements Document (PRD) with the “context-is-king” mindset of modern prompt engineering."
+"过度指定要构建什么，同时对上下文和如何构建指定不足，这就是为什么许多 AI 驱动的编码尝试在 80% 处停滞不前的原因。产品需求提示（PRP）通过将经典产品需求文档（PRD）的严格范围与现代提示工程的'上下文为王'思维相融合来解决这个问题。"
 
-## What is a PRP?
+## 什么是 PRP？
 
-Product Requirement Prompt (PRP)
-A PRP is a structured prompt that supplies an AI coding agent with everything it needs to deliver a vertical slice of working software—no more, no less.
+产品需求提示（PRP）
+PRP 是一个结构化提示，为 AI 编码代理提供交付工作软件垂直切片所需的一切——不多不少。
 
-### How it differs from a PRD
+### 它与 PRD 的区别
 
-A traditional PRD clarifies what the product must do and why customers need it, but deliberately avoids how it will be built.
+传统的 PRD 阐明产品必须做什么以及客户为什么需要它，但故意避免如何构建它。
 
-A PRP keeps the goal and justification sections of a PRD yet adds three AI-critical layers:
+PRP 保留了 PRD 的目标和理由部分，但添加了三个对 AI 至关重要的层次：
 
-### Context
+### 上下文
 
-- Precise file paths and content, library versions and library context, code snippets examples. LLMs generate higher-quality code when given direct, in-prompt references instead of broad descriptions. Usage of a ai_docs/ directory to pipe in library and other docs.
+- 精确的文件路径和内容、库版本和库上下文、代码片段示例。当给出直接的提示内参考而不是宽泛的描述时，LLM 会生成更高质量的代码。使用 ai_docs/ 目录来导入库和其他文档。
 
-### Implementation Details and Strategy
+### 实现细节和策略
 
-- In contrast of a traditional PRD, a PRP explicitly states how the product will be built. This includes the use of API endpoints, test runners, or agent patterns (ReAct, Plan-and-Execute) to use. Usage of typehints, dependencies, architectural patterns and other tools to ensure the code is built correctly.
+- 与传统 PRD 相比，PRP 明确说明产品将如何构建。这包括使用 API 端点、测试运行器或代理模式（ReAct、计划和执行）。使用类型提示、依赖项、架构模式和其他工具来确保代码正确构建。
 
-### Validation Gates
+### 验证门控
 
-- Deterministic checks such as pytest, ruff, or static type passes “Shift-left” quality controls catch defects early and are cheaper than late re-work.
-  Example: Each new funtion should be individaully tested, Validation gate = all tests pass.
+- 确定性检查，如 pytest、ruff 或静态类型检查，"左移"质量控制可以早期发现缺陷，比后期返工更便宜。
+  示例：每个新函数都应该单独测试，验证门控 = 所有测试通过。
 
-### PRP Layer Why It Exists
+### PRP 层存在的原因
 
-- The PRP folder is used to prepare and pipe PRPs to the agentic coder.
+- PRP 文件夹用于准备和向代理编码器传输 PRP。
 
-## Why context is non-negotiable
+## 为什么上下文是不可协商的
 
-Large-language-model outputs are bounded by their context window; irrelevant or missing context literally squeezes out useful tokens
+大语言模型的输出受其上下文窗口限制；无关或缺失的上下文会字面上挤压有用的标记
 
-The industry mantra “Garbage In → Garbage Out” applies doubly to prompt engineering and especially in agentic engineering: sloppy input yields brittle code
+行业格言"垃圾进→垃圾出"在提示工程中加倍适用，特别是在代理工程中：草率的输入产生脆弱的代码
 
-## In short
+## 简而言之
 
-A PRP is PRD + curated codebase intelligence + agent/runbook—the minimum viable packet an AI needs to plausibly ship production-ready code on the first pass.
+PRP 是 PRD + 精选代码库智能 + 代理/运行手册——AI 在第一次尝试中合理交付生产就绪代码所需的最小可行包。
 
-The PRP can be small and focusing on a single task or large and covering multiple tasks.
-The true power of PRP is in the ability to chain tasks together in a PRP to build, self-validate and ship complex features.
+PRP 可以很小并专注于单个任务，也可以很大并涵盖多个任务。
+PRP 的真正力量在于能够在 PRP 中将任务链接在一起，以构建、自我验证和交付复杂功能。

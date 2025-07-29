@@ -1,411 +1,427 @@
 ---
-name: "PydanticAI Agent PRP Template"
-description: "Template for generating comprehensive PRPs for PydanticAI agent development projects"
+name: "PydanticAI 代理 PRP 模板"
+description: "用于生成 PydanticAI 代理开发项目综合 PRP 的模板"
 ---
 
-## Purpose
+## 目的
 
-[Brief description of the PydanticAI agent to be built and its main purpose]
+[简要描述要构建的 PydanticAI 代理及其主要目的]
 
-## Core Principles
+## 核心原则
 
-1. **PydanticAI Best Practices**: Deep integration with PydanticAI patterns for agent creation, tools, and structured outputs
-2. **Production Ready**: Include security, testing, and monitoring for production deployments
-3. **Type Safety First**: Leverage PydanticAI's type-safe design and Pydantic validation throughout
-4. **Context Engineering Integration**: Apply proven context engineering workflows to AI agent development
-5. **Comprehensive Testing**: Use TestModel and FunctionModel for thorough agent validation
+1. **PydanticAI 最佳实践**: 深度集成 PydanticAI 模式，用于代理创建、工具和结构化输出
+2. **生产就绪**: 包含安全性、测试和监控，用于生产部署
+3. **类型安全优先**: 在整个过程中利用 PydanticAI 的类型安全设计和 Pydantic 验证
+4. **上下文工程集成**: 将经过验证的上下文工程工作流应用于 AI 代理开发
+5. **全面测试**: 使用 TestModel 和 FunctionModel 进行彻底的代理验证
 
-## ⚠️ Implementation Guidelines: Don't Over-Engineer
+## ⚠️ 实施指南：不要过度工程化
 
-**IMPORTANT**: Keep your agent implementation focused and practical. Don't build unnecessary complexity.
+**重要提示**: 保持代理实施的专注性和实用性。不要构建不必要的复杂性。
 
-### What NOT to do:
-- ❌ **Don't create dozens of tools** - Build only the tools your agent actually needs
-- ❌ **Don't over-complicate dependencies** - Keep dependency injection simple and focused
-- ❌ **Don't add unnecessary abstractions** - Follow main_agent_reference patterns directly
-- ❌ **Don't build complex workflows** unless specifically required
-- ❌ **Don't add structured output** unless validation is specifically needed (default to string)
-- ❌ **Don't build in the examples/ folder**
+### 不要做的事情：
+- ❌ **不要创建数十个工具** - 只构建代理实际需要的工具
+- ❌ **不要过度复杂化依赖关系** - 保持依赖注入简单且专注
+- ❌ **不要添加不必要的抽象** - 直接遵循 main_agent_reference 模式
+- ❌ **不要构建复杂的工作流** 除非特别需要
+- ❌ **不要添加结构化输出** 除非特别需要验证（默认使用字符串）
+- ❌ **不要在 examples/ 文件夹中构建**
 
-### What TO do:
-- ✅ **Start simple** - Build the minimum viable agent that meets requirements
-- ✅ **Add tools incrementally** - Implement only what the agent needs to function
-- ✅ **Follow main_agent_reference** - Use proven patterns, don't reinvent
-- ✅ **Use string output by default** - Only add result_type when validation is required
-- ✅ **Test early and often** - Use TestModel to validate as you build
+### 要做的事情：
+- ✅ **从简单开始** - 构建满足要求的最小可行代理
+- ✅ **逐步添加工具** - 只实现代理运行所需的功能
+- ✅ **遵循 main_agent_reference** - 使用经过验证的模式，不要重新发明
+- ✅ **默认使用字符串输出** - 只有在需要验证时才添加 result_type
+- ✅ **早期且频繁测试** - 在构建过程中使用 TestModel 进行验证
 
-### Key Question:
-**"Does this agent really need this feature to accomplish its core purpose?"**
+### 关键问题：
+**"这个代理真的需要这个功能来完成其核心目的吗？"**
 
-If the answer is no, don't build it. Keep it simple, focused, and functional.
+如果答案是否定的，就不要构建它。保持简单、专注和实用。
 
 ---
 
-## Goal
+## 目标
 
-[Detailed description of what the agent should accomplish]
+[详细描述代理应该完成的任务]
 
-## Why
+## 原因
 
-[Explanation of why this agent is needed and what problem it solves]
+[解释为什么需要这个代理以及它解决什么问题]
 
-## What
+## 内容
 
-### Agent Type Classification
-- [ ] **Chat Agent**: Conversational interface with memory and context
-- [ ] **Tool-Enabled Agent**: Agent with external tool integration capabilities
-- [ ] **Workflow Agent**: Multi-step task processing and orchestration
-- [ ] **Structured Output Agent**: Complex data validation and formatting
+### 代理类型分类
+- [ ] **聊天代理**: 具有记忆和上下文的对话界面
+- [ ] **工具增强代理**: 具有外部工具集成能力的代理
+- [ ] **工作流代理**: 多步骤任务处理和编排
+- [ ] **结构化输出代理**: 复杂数据验证和格式化
 
-### Model Provider Requirements
-- [ ] **OpenAI**: `openai:gpt-4o` or `openai:gpt-4o-mini`
-- [ ] **Anthropic**: `anthropic:claude-3-5-sonnet-20241022` or `anthropic:claude-3-5-haiku-20241022`
-- [ ] **Google**: `gemini-1.5-flash` or `gemini-1.5-pro`
-- [ ] **Fallback Strategy**: Multiple provider support with automatic failover
+### 模型提供商要求
+- [ ] **OpenAI**: `openai:gpt-4o` 或 `openai:gpt-4o-mini`
+- [ ] **Anthropic**: `anthropic:claude-3-5-sonnet-20241022` 或 `anthropic:claude-3-5-haiku-20241022`
+- [ ] **Google**: `gemini-1.5-flash` 或 `gemini-1.5-pro`
+- [ ] **回退策略**: 支持多个提供商的自动故障转移
 
-### External Integrations
-- [ ] Database connections (specify type: PostgreSQL, MongoDB, etc.)
-- [ ] REST API integrations (list required services)
-- [ ] File system operations
-- [ ] Web scraping or search capabilities
-- [ ] Real-time data sources
+### 外部集成
+- [ ] 数据库连接（指定类型：PostgreSQL、MongoDB 等）
+- [ ] REST API 集成（列出所需服务）
+- [ ] 文件系统操作
+- [ ] 网页抓取或搜索功能
+- [ ] 实时数据源
 
-### Success Criteria
-- [ ] Agent successfully handles specified use cases
-- [ ] All tools work correctly with proper error handling
-- [ ] Structured outputs validate according to Pydantic models
-- [ ] Comprehensive test coverage with TestModel and FunctionModel
-- [ ] Security measures implemented (API keys, input validation, rate limiting)
-- [ ] Performance meets requirements (response time, throughput)
+### 成功标准
 
-## All Needed Context
+#### 技术成功
+- [ ] 代理使用正确的 PydanticAI 模式成功实例化
+- [ ] 所有工具正确注册并正常运行
+- [ ] 使用 Pydantic 实现类型安全的数据模型
+- [ ] 全面的测试覆盖率（>90%）
+- [ ] 安全措施已实施并验证
+- [ ] 性能基准达标
 
-### PydanticAI Documentation & Research
+#### 实施成功
+- [ ] 遵循 PydanticAI 最佳实践的清洁、可维护代码
+- [ ] 正确的错误处理和日志记录
+- [ ] 文档完整且准确
+- [ ] 生产就绪的配置
+- [ ] 监控和可观测性已实施
+
+#### 验证成功
+- [ ] 所有验证级别通过
+- [ ] 代理行为符合要求
+- [ ] 集成测试成功
+- [ ] 安全审计完成
+- [ ] 性能测试完成
+
+## 所需的全部上下文
+
+### PydanticAI 文档和研究
 
 ```yaml
-# MCP servers
+# MCP 服务器
 - mcp: Archon
   query: "PydanticAI agent creation model providers tools dependencies"
-  why: Core framework understanding and latest patterns
+  why: 核心框架理解和最新模式
 
-# ESSENTIAL PYDANTIC AI DOCUMENTATION - Must be researched
+# 必要的 PYDANTIC AI 文档 - 必须研究
 - url: https://ai.pydantic.dev/
-  why: Official PydanticAI documentation with getting started guide
-  content: Agent creation, model providers, dependency injection patterns
+  why: 官方 PydanticAI 文档和入门指南
+  content: 代理创建、模型提供商、依赖注入模式
 
 - url: https://ai.pydantic.dev/agents/
-  why: Comprehensive agent architecture and configuration patterns
-  content: System prompts, output types, execution methods, agent composition
+  why: 全面的代理架构和配置模式
+  content: 系统提示、输出类型、执行方法、代理组合
 
 - url: https://ai.pydantic.dev/tools/
-  why: Tool integration patterns and function registration
-  content: @agent.tool decorators, RunContext usage, parameter validation
+  why: 工具集成模式和函数注册
+  content: @agent.tool 装饰器、RunContext 使用、参数验证
 
 - url: https://ai.pydantic.dev/testing/
-  why: Testing strategies specific to PydanticAI agents
-  content: TestModel, FunctionModel, Agent.override(), pytest patterns
+  why: PydanticAI 代理特定的测试策略
+  content: TestModel、FunctionModel、Agent.override()、pytest 模式
 
 - url: https://ai.pydantic.dev/models/
-  why: Model provider configuration and authentication
-  content: OpenAI, Anthropic, Gemini setup, API key management, fallback models
+  why: 模型提供商配置和身份验证
+  content: OpenAI、Anthropic、Gemini 设置、API 密钥管理、回退模型
 
-# Prebuilt examples
+# 预构建示例
 - path: examples/
-  why: Reference implementations for Pydantic AI agents
-  content: A bunch of already built simple Pydantic AI examples to reference including how to set up models and providers
+  why: Pydantic AI 代理的参考实现
+  content: 一系列已构建的简单 Pydantic AI 示例，包括如何设置模型和提供商
 
 - path: examples/cli.py
-  why: Shows real-world interaction with Pydantic AI agents
-  content: Conversational CLI with streaming, tool call visibility, and conversation handling - demonstrates how users actually interact with agents
+  why: 展示与 Pydantic AI 代理的真实世界交互
+  content: 具有流式传输、工具调用可见性和对话处理的对话式 CLI - 演示用户如何实际与代理交互
 ```
 
-### Agent Architecture Research
+### 代理架构研究
 
 ```yaml
-# PydanticAI Architecture Patterns (follow main_agent_reference)
+# PydanticAI 架构模式（遵循 main_agent_reference）
 agent_structure:
   configuration:
-    - settings.py: Environment-based configuration with pydantic-settings
-    - providers.py: Model provider abstraction with get_llm_model()
-    - Environment variables for API keys and model selection
-    - Never hardcode model strings like "openai:gpt-4o"
+    - settings.py: 基于环境的配置，使用 pydantic-settings
+    - providers.py: 模型提供商抽象，使用 get_llm_model()
+    - API 密钥和模型选择的环境变量
+    - 永远不要硬编码模型字符串，如 "openai:gpt-4o"
   
   agent_definition:
-    - Default to string output (no result_type unless structured output needed)
-    - Use get_llm_model() from providers.py for model configuration
-    - System prompts as string constants or functions
-    - Dataclass dependencies for external services
+    - 默认字符串输出（除非需要结构化输出，否则不使用 result_type）
+    - 使用 providers.py 中的 get_llm_model() 进行模型配置
+    - 系统提示作为字符串常量或函数
+    - 外部服务的数据类依赖
   
   tool_integration:
-    - @agent.tool for context-aware tools with RunContext[DepsType]
-    - Tool functions as pure functions that can be called independently
-    - Proper error handling and logging in tool implementations
-    - Dependency injection through RunContext.deps
+    - @agent.tool 用于具有 RunContext[DepsType] 的上下文感知工具
+    - 工具函数作为可独立调用的纯函数
+    - 工具实现中的适当错误处理和日志记录
+    - 通过 RunContext.deps 进行依赖注入
   
   testing_strategy:
-    - TestModel for rapid development validation
-    - FunctionModel for custom behavior testing  
-    - Agent.override() for test isolation
-    - Comprehensive tool testing with mocks
+    - TestModel 用于快速开发验证
+    - FunctionModel 用于自定义行为测试
+    - Agent.override() 用于测试隔离
+    - 使用模拟进行全面的工具测试
 ```
 
-### Security and Production Considerations
+### 安全和生产考虑
 
 ```yaml
-# PydanticAI Security Patterns (research required)
+# PydanticAI 安全模式（需要研究）
 security_requirements:
   api_management:
     environment_variables: ["OPENAI_API_KEY", "ANTHROPIC_API_KEY", "GEMINI_API_KEY"]
-    secure_storage: "Never commit API keys to version control"
-    rotation_strategy: "Plan for key rotation and management"
+    secure_storage: "永远不要将 API 密钥提交到版本控制"
+    rotation_strategy: "规划密钥轮换和管理"
   
   input_validation:
-    sanitization: "Validate all user inputs with Pydantic models"
-    prompt_injection: "Implement prompt injection prevention strategies"
-    rate_limiting: "Prevent abuse with proper throttling"
+    sanitization: "使用 Pydantic 模型验证所有用户输入"
+    prompt_injection: "实施提示注入防护策略"
+    rate_limiting: "通过适当的限流防止滥用"
   
   output_security:
-    data_filtering: "Ensure no sensitive data in agent responses"
-    content_validation: "Validate output structure and content"
-    logging_safety: "Safe logging without exposing secrets"
+    data_filtering: "确保代理响应中没有敏感数据"
+    content_validation: "验证输出结构和内容"
+    logging_safety: "安全日志记录，不暴露机密信息"
 ```
 
-### Common PydanticAI Gotchas (research and document)
+### 常见 PydanticAI 陷阱（研究和记录）
 
 ```yaml
-# Agent-specific gotchas to research and address
+# 需要研究和解决的代理特定陷阱
 implementation_gotchas:
   async_patterns:
-    issue: "Mixing sync and async agent calls inconsistently"
-    research: "PydanticAI async/await best practices"
-    solution: "[To be documented based on research]"
+    issue: "不一致地混合同步和异步代理调用"
+    research: "PydanticAI async/await 最佳实践"
+    solution: "[基于研究待记录]"
   
   model_limits:
-    issue: "Different models have different capabilities and token limits"
-    research: "Model provider comparison and capabilities"
-    solution: "[To be documented based on research]"
+    issue: "不同模型具有不同的能力和令牌限制"
+    research: "模型提供商比较和能力"
+    solution: "[基于研究待记录]"
   
   dependency_complexity:
-    issue: "Complex dependency graphs can be hard to debug"
-    research: "Dependency injection best practices in PydanticAI"
-    solution: "[To be documented based on research]"
+    issue: "复杂的依赖图可能难以调试"
+    research: "PydanticAI 中的依赖注入最佳实践"
+    solution: "[基于研究待记录]"
   
   tool_error_handling:
-    issue: "Tool failures can crash entire agent runs"
-    research: "Error handling and retry patterns for tools"
-    solution: "[To be documented based on research]"
+    issue: "工具故障可能导致整个代理运行崩溃"
+    research: "工具的错误处理和重试模式"
+    solution: "[基于研究待记录]"
 ```
 
-## Implementation Blueprint
+## 实施蓝图
 
-### Technology Research Phase
+### 技术研究阶段
 
-**RESEARCH REQUIRED - Complete before implementation:**
+**需要研究 - 在实施前完成：**
 
-✅ **PydanticAI Framework Deep Dive:**
-- [ ] Agent creation patterns and best practices
-- [ ] Model provider configuration and fallback strategies
-- [ ] Tool integration patterns (@agent.tool vs @agent.tool_plain)
-- [ ] Dependency injection system and type safety
-- [ ] Testing strategies with TestModel and FunctionModel
+✅ **PydanticAI 框架深入研究：**
+- [ ] 代理创建模式和最佳实践
+- [ ] 模型提供商配置和回退策略
+- [ ] 工具集成模式（@agent.tool vs @agent.tool_plain）
+- [ ] 依赖注入系统和类型安全
+- [ ] 使用 TestModel 和 FunctionModel 的测试策略
 
-✅ **Agent Architecture Investigation:**
-- [ ] Project structure conventions (agent.py, tools.py, models.py, dependencies.py)
-- [ ] System prompt design (static vs dynamic)
-- [ ] Structured output validation with Pydantic models
-- [ ] Async/sync patterns and streaming support
-- [ ] Error handling and retry mechanisms
+✅ **代理架构调研：**
+- [ ] 项目结构约定（agent.py、tools.py、models.py、dependencies.py）
+- [ ] 系统提示设计（静态 vs 动态）
+- [ ] 使用 Pydantic 模型的结构化输出验证
+- [ ] 异步/同步模式和流式支持
+- [ ] 错误处理和重试机制
 
-✅ **Security and Production Patterns:**
-- [ ] API key management and secure configuration
-- [ ] Input validation and prompt injection prevention
-- [ ] Rate limiting and monitoring strategies
-- [ ] Logging and observability patterns
-- [ ] Deployment and scaling considerations
+✅ **安全和生产模式：**
+- [ ] API 密钥管理和安全配置
+- [ ] 输入验证和提示注入防护
+- [ ] 速率限制和监控策略
+- [ ] 日志记录和可观测性模式
+- [ ] 部署和扩展考虑
 
-### Agent Implementation Plan
+### 代理实施计划
 
 ```yaml
-Implementation Task 1 - Agent Architecture Setup (Follow main_agent_reference):
-  CREATE agent project structure:
-    - settings.py: Environment-based configuration with pydantic-settings
-    - providers.py: Model provider abstraction with get_llm_model()
-    - agent.py: Main agent definition (default string output)
-    - tools.py: Tool functions with proper decorators
-    - dependencies.py: External service integrations (dataclasses)
-    - tests/: Comprehensive test suite
+实施任务 1 - 代理架构设置（遵循 main_agent_reference）：
+  创建代理项目结构：
+    - settings.py: 基于环境的配置，使用 pydantic-settings
+    - providers.py: 模型提供商抽象，使用 get_llm_model()
+    - agent.py: 主代理定义（默认字符串输出）
+    - tools.py: 具有适当装饰器的工具函数
+    - dependencies.py: 外部服务集成（数据类）
+    - tests/: 全面的测试套件
 
-Implementation Task 2 - Core Agent Development:
-  IMPLEMENT agent.py following main_agent_reference patterns:
-    - Use get_llm_model() from providers.py for model configuration
-    - System prompt as string constant or function
-    - Dependency injection with dataclass
-    - NO result_type unless structured output specifically needed
-    - Error handling and logging
+实施任务 2 - 核心代理开发：
+  实现 agent.py，遵循 main_agent_reference 模式：
+    - 使用 providers.py 中的 get_llm_model() 进行模型配置
+    - 系统提示作为字符串常量或函数
+    - 使用数据类进行依赖注入
+    - 除非特别需要结构化输出，否则不使用 result_type
+    - 错误处理和日志记录
 
-Implementation Task 3 - Tool Integration:
-  DEVELOP tools.py:
-    - Tool functions with @agent.tool decorators
-    - RunContext[DepsType] integration for dependency access
-    - Parameter validation with proper type hints
-    - Error handling and retry mechanisms
-    - Tool documentation and schema generation
+实施任务 3 - 工具集成：
+  开发 tools.py：
+    - 使用 @agent.tool 装饰器的工具函数
+    - RunContext[DepsType] 集成以访问依赖
+    - 使用适当类型提示的参数验证
+    - 错误处理和重试机制
+    - 工具文档和模式生成
 
-Implementation Task 4 - Data Models and Dependencies:
-  CREATE models.py and dependencies.py:
-    - Pydantic models for structured outputs
-    - Dependency classes for external services
-    - Input validation models for tools
-    - Custom validators and constraints
+实施任务 4 - 数据模型和依赖：
+  创建 models.py 和 dependencies.py：
+    - 结构化输出的 Pydantic 模型
+    - 外部服务的依赖类
+    - 工具的输入验证模型
+    - 自定义验证器和约束
 
-Implementation Task 5 - Comprehensive Testing:
-  IMPLEMENT testing suite:
-    - TestModel integration for rapid development
-    - FunctionModel tests for custom behavior
-    - Agent.override() patterns for isolation
-    - Integration tests with real providers
-    - Tool validation and error scenario testing
+实施任务 5 - 全面测试：
+  实现测试套件：
+    - TestModel 集成用于快速开发
+    - FunctionModel 测试用于自定义行为
+    - Agent.override() 模式用于隔离
+    - 与真实提供商的集成测试
+    - 工具验证和错误场景测试
 
-Implementation Task 6 - Security and Configuration:
-  SETUP security patterns:
-    - Environment variable management for API keys
-    - Input sanitization and validation
-    - Rate limiting implementation
-    - Secure logging and monitoring
-    - Production deployment configuration
+实施任务 6 - 安全和配置：
+  设置安全模式：
+    - API 密钥的环境变量管理
+    - 输入清理和验证
+    - 速率限制实现
+    - 安全日志记录和监控
+    - 生产部署配置
 ```
 
-## Validation Loop
+## 验证循环
 
-### Level 1: Agent Structure Validation
+### 级别 1：代理结构验证
 
 ```bash
-# Verify complete agent project structure
+# 验证完整的代理项目结构
 find agent_project -name "*.py" | sort
-test -f agent_project/agent.py && echo "Agent definition present"
-test -f agent_project/tools.py && echo "Tools module present"
-test -f agent_project/models.py && echo "Models module present"
-test -f agent_project/dependencies.py && echo "Dependencies module present"
+test -f agent_project/agent.py && echo "代理定义存在"
+test -f agent_project/tools.py && echo "工具模块存在"
+test -f agent_project/models.py && echo "模型模块存在"
+test -f agent_project/dependencies.py && echo "依赖模块存在"
 
-# Verify proper PydanticAI imports
+# 验证正确的 PydanticAI 导入
 grep -q "from pydantic_ai import Agent" agent_project/agent.py
 grep -q "@agent.tool" agent_project/tools.py
 grep -q "from pydantic import BaseModel" agent_project/models.py
 
-# Expected: All required files with proper PydanticAI patterns
-# If missing: Generate missing components with correct patterns
+# 预期：所有必需的文件都具有正确的 PydanticAI 模式
+# 如果缺失：生成具有正确模式的缺失组件
 ```
 
-### Level 2: Agent Functionality Validation
+### 级别 2：代理功能验证
 
 ```bash
-# Test agent can be imported and instantiated
+# 测试代理可以被导入和实例化
 python -c "
 from agent_project.agent import agent
-print('Agent created successfully')
-print(f'Model: {agent.model}')
-print(f'Tools: {len(agent.tools)}')
+print('代理创建成功')
+print(f'模型: {agent.model}')
+print(f'工具: {len(agent.tools)}')
 "
 
-# Test with TestModel for validation
+# 使用 TestModel 进行验证测试
 python -c "
 from pydantic_ai.models.test import TestModel
 from agent_project.agent import agent
 test_model = TestModel()
 with agent.override(model=test_model):
-    result = agent.run_sync('Test message')
-    print(f'Agent response: {result.output}')
+    result = agent.run_sync('测试消息')
+    print(f'代理响应: {result.output}')
 "
 
-# Expected: Agent instantiation works, tools registered, TestModel validation passes
-# If failing: Debug agent configuration and tool registration
+# 预期：代理实例化工作正常，工具已注册，TestModel 验证通过
+# 如果失败：调试代理配置和工具注册
 ```
 
-### Level 3: Comprehensive Testing Validation
+### 级别 3：全面测试验证
 
 ```bash
-# Run complete test suite
+# 运行完整的测试套件
 cd agent_project
 python -m pytest tests/ -v
 
-# Test specific agent behavior
+# 测试特定的代理行为
 python -m pytest tests/test_agent.py::test_agent_response -v
 python -m pytest tests/test_tools.py::test_tool_validation -v
 python -m pytest tests/test_models.py::test_output_validation -v
 
-# Expected: All tests pass, comprehensive coverage achieved
-# If failing: Fix implementation based on test failures
+# 预期：所有测试通过，实现全面覆盖
+# 如果失败：根据测试失败修复实现
 ```
 
-### Level 4: Production Readiness Validation
+### 级别 4：生产就绪验证
 
 ```bash
-# Verify security patterns
-grep -r "API_KEY" agent_project/ | grep -v ".py:" # Should not expose keys
-test -f agent_project/.env.example && echo "Environment template present"
+# 验证安全模式
+grep -r "API_KEY" agent_project/ | grep -v ".py:" # 不应暴露密钥
+test -f agent_project/.env.example && echo "环境模板存在"
 
-# Check error handling
-grep -r "try:" agent_project/ | wc -l  # Should have error handling
-grep -r "except" agent_project/ | wc -l  # Should have exception handling
+# 检查错误处理
+grep -r "try:" agent_project/ | wc -l  # 应该有错误处理
+grep -r "except" agent_project/ | wc -l  # 应该有异常处理
 
-# Verify logging setup
-grep -r "logging\|logger" agent_project/ | wc -l  # Should have logging
+# 验证日志设置
+grep -r "logging\|logger" agent_project/ | wc -l  # 应该有日志记录
 
-# Expected: Security measures in place, error handling comprehensive, logging configured
-# If issues: Implement missing security and production patterns
+# 预期：安全措施到位，错误处理全面，日志记录已配置
+# 如果有问题：实施缺失的安全和生产模式
 ```
 
-## Final Validation Checklist
+## 最终验证清单
 
-### Agent Implementation Completeness
+### 代理实施完整性
 
-- [ ] Complete agent project structure: `agent.py`, `tools.py`, `models.py`, `dependencies.py`
-- [ ] Agent instantiation with proper model provider configuration
-- [ ] Tool registration with @agent.tool decorators and RunContext integration
-- [ ] Structured outputs with Pydantic model validation
-- [ ] Dependency injection properly configured and tested
-- [ ] Comprehensive test suite with TestModel and FunctionModel
+- [ ] 完整的代理项目结构：`agent.py`、`tools.py`、`models.py`、`dependencies.py`
+- [ ] 使用正确的模型提供商配置实例化代理
+- [ ] 使用 @agent.tool 装饰器和 RunContext 集成注册工具
+- [ ] 使用 Pydantic 模型验证的结构化输出
+- [ ] 依赖注入正确配置和测试
+- [ ] 使用 TestModel 和 FunctionModel 的全面测试套件
 
-### PydanticAI Best Practices
+### PydanticAI 最佳实践
 
-- [ ] Type safety throughout with proper type hints and validation
-- [ ] Security patterns implemented (API keys, input validation, rate limiting)
-- [ ] Error handling and retry mechanisms for robust operation
-- [ ] Async/sync patterns consistent and appropriate
-- [ ] Documentation and code comments for maintainability
+- [ ] 全程类型安全，具有正确的类型提示和验证
+- [ ] 实施安全模式（API 密钥、输入验证、速率限制）
+- [ ] 用于稳健操作的错误处理和重试机制
+- [ ] 异步/同步模式一致且适当
+- [ ] 可维护性的文档和代码注释
 
-### Production Readiness
+### 生产就绪
 
-- [ ] Environment configuration with .env files and validation
-- [ ] Logging and monitoring setup for observability
-- [ ] Performance optimization and resource management
-- [ ] Deployment readiness with proper configuration management
-- [ ] Maintenance and update strategies documented
+- [ ] 使用 .env 文件和验证的环境配置
+- [ ] 用于可观测性的日志记录和监控设置
+- [ ] 性能优化和资源管理
+- [ ] 具有正确配置管理的部署就绪
+- [ ] 维护和更新策略已记录
 
 ---
 
-## Anti-Patterns to Avoid
+## 要避免的反模式
 
-### PydanticAI Agent Development
+### PydanticAI 代理开发
 
-- ❌ Don't skip TestModel validation - always test with TestModel during development
-- ❌ Don't hardcode API keys - use environment variables for all credentials
-- ❌ Don't ignore async patterns - PydanticAI has specific async/sync requirements
-- ❌ Don't create complex tool chains - keep tools focused and composable
-- ❌ Don't skip error handling - implement comprehensive retry and fallback mechanisms
+- ❌ 不要跳过 TestModel 验证 - 在开发过程中始终使用 TestModel 测试
+- ❌ 不要硬编码 API 密钥 - 对所有凭据使用环境变量
+- ❌ 不要忽略异步模式 - PydanticAI 有特定的异步/同步要求
+- ❌ 不要创建复杂的工具链 - 保持工具专注和可组合
+- ❌ 不要跳过错误处理 - 实施全面的重试和回退机制
 
-### Agent Architecture
+### 代理架构
 
-- ❌ Don't mix agent types - clearly separate chat, tool, workflow, and structured output patterns
-- ❌ Don't ignore dependency injection - use proper type-safe dependency management
-- ❌ Don't skip output validation - always use Pydantic models for structured responses
-- ❌ Don't forget tool documentation - ensure all tools have proper descriptions and schemas
+- ❌ 不要混合代理类型 - 清楚地分离聊天、工具、工作流和结构化输出模式
+- ❌ 不要忽略依赖注入 - 使用正确的类型安全依赖管理
+- ❌ 不要跳过输出验证 - 始终对结构化响应使用 Pydantic 模型
+- ❌ 不要忘记工具文档 - 确保所有工具都有正确的描述和模式
 
-### Security and Production
+### 安全和生产
 
-- ❌ Don't expose sensitive data - validate all outputs and logs for security
-- ❌ Don't skip input validation - sanitize and validate all user inputs
-- ❌ Don't ignore rate limiting - implement proper throttling for external services
-- ❌ Don't deploy without monitoring - include proper observability from the start
+- ❌ 不要暴露敏感数据 - 验证所有输出和日志的安全性
+- ❌ 不要跳过输入验证 - 清理和验证所有用户输入
+- ❌ 不要忽略速率限制 - 对外部服务实施适当的限流
+- ❌ 不要在没有监控的情况下部署 - 从一开始就包含适当的可观测性
 
-**RESEARCH STATUS: [TO BE COMPLETED]** - Complete comprehensive PydanticAI research before implementation begins.
+**研究状态：[待完成]** - 在实施开始前完成全面的 PydanticAI 研究。

@@ -1,76 +1,76 @@
-# Template Generator - Global Rules for Context Engineering
+# 模板生成器 - 上下文工程全局规则
 
-This file contains the global rules and principles that apply to ALL context engineering work, regardless of what template or project you're building. These rules never change and should be followed consistently.
+此文件包含适用于所有上下文工程工作的全局规则和原则，无论你正在构建什么模板或项目。这些规则永不改变，应该始终遵循。
 
-## 🔄 Context Engineering Core Principles
+## 🔄 上下文工程核心原则
 
-**IMPORTANT: These principles apply to ALL context engineering work:**
+**重要：这些原则适用于所有上下文工程工作：**
 
-### PRP Framework Workflow
-- **Always start with INITIAL.md** - Define requirements before generating PRPs
-- **Use the PRP pattern**: INITIAL.md → `/generate-template-prp INITIAL.md` → `/execute-template-prp PRPs/filename.md`
-- **Follow validation loops** - Each PRP must include executable validation steps
-- **Context is King** - Include ALL necessary documentation, examples, and patterns
+### PRP 框架工作流
+- **始终从 INITIAL.md 开始** - 在生成 PRP 之前定义需求
+- **使用 PRP 模式**：INITIAL.md → `/generate-template-prp INITIAL.md` → `/execute-template-prp PRPs/filename.md`
+- **遵循验证循环** - 每个 PRP 必须包含可执行的验证步骤
+- **上下文为王** - 包含所有必要的文档、示例和模式
 
-### Research Methodology
-- **Web search first** - Always do extensive web research before implementation
-- **Documentation deep dive** - Study official docs, best practices, and common patterns
-- **Pattern extraction** - Identify reusable patterns and architectural conventions
-- **Gotcha documentation** - Document common pitfalls and edge cases
+### 研究方法论
+- **网络搜索优先** - 在实现之前始终进行广泛的网络研究
+- **文档深度挖掘** - 研究官方文档、最佳实践和常见模式
+- **模式提取** - 识别可重用的模式和架构约定
+- **陷阱文档** - 记录常见陷阱和边缘情况
 
-## 📚 Project Awareness & Context
+## 📚 项目意识和上下文
 
-- **Use consistent naming conventions** and file structure patterns
-- **Follow established directory organization** patterns
-- **Leverage examples extensively** - Study existing patterns before creating new ones
+- **使用一致的命名约定**和文件结构模式
+- **遵循既定的目录组织**模式
+- **广泛利用示例** - 在创建新模式之前研究现有模式
 
-## 🧱 Code Structure & Modularity
+## 🧱 代码结构和模块化
 
-- **Never create files longer than 500 lines** - Split into modules when approaching limit
-- **Organize code into clearly separated modules** grouped by feature or responsibility
-- **Use clear, consistent imports** (prefer relative imports within packages)
-- **Follow established coding standards** and conventions
+- **永远不要创建超过 500 行的文件** - 接近限制时拆分为模块
+- **将代码组织成清晰分离的模块**，按功能或职责分组
+- **使用清晰、一致的导入**（在包内优先使用相对导入）
+- **遵循既定的编码标准**和约定
 
-## ✅ Task Management
+## ✅ 任务管理
 
-- **Break complex tasks into smaller steps** with clear completion criteria
-- **Mark tasks complete immediately** after finishing them
-- **Update task status in real-time** as work progresses
+- **将复杂任务分解为较小的步骤**，具有明确的完成标准
+- **完成任务后立即标记为完成**
+- **实时更新任务状态**，随着工作进展
 
-## 📎 Documentation Standards
+## 📎 文档标准
 
-- **Write comprehensive documentation** for every component
-- **Include clear usage examples** with working code
-- **Document all gotchas and edge cases** to prevent common errors
-- **Maintain up-to-date references** to external documentation
+- **为每个组件编写综合文档**
+- **包含清晰的使用示例**和工作代码
+- **记录所有陷阱和边缘情况**以防止常见错误
+- **维护最新的外部文档引用**
 
-## 🔍 Research Standards
+## 🔍 研究标准
 
-- **Web search is your best friend** - Use it extensively for technology research
-- **Study official documentation thoroughly** before implementation
-- **Research established patterns** and best practices for the technology
-- **Document all findings comprehensively** in PRPs and implementation guides
+- **网络搜索是你最好的朋友** - 广泛用于技术研究
+- **在实现之前彻底研究官方文档**
+- **研究既定模式**和技术最佳实践
+- **在 PRP 和实现指南中全面记录所有发现**
 
-## 🎯 Implementation Standards
+## 🎯 实现标准
 
-- **Follow the PRP workflow religiously** - Don't skip steps
-- **Always validate before proceeding** to the next step
-- **Use existing patterns as templates** rather than creating from scratch
-- **Include comprehensive error handling** in all implementations
+- **严格遵循 PRP 工作流** - 不要跳过步骤
+- **在进入下一步之前始终验证**
+- **使用现有模式作为模板**而不是从头创建
+- **在所有实现中包含综合错误处理**
 
-## 🚫 Anti-Patterns to Always Avoid
+## 🚫 始终避免的反模式
 
-- ❌ Don't skip research - Always understand the technology deeply first
-- ❌ Don't create generic solutions - Always specialize for the specific use case
-- ❌ Don't ignore validation - Every step must include verification
-- ❌ Don't assume knowledge - Document everything explicitly
-- ❌ Don't skip examples - Always include working code examples
-- ❌ Don't forget edge cases - Include error handling and gotchas
+- ❌ 不要跳过研究 - 始终首先深入理解技术
+- ❌ 不要创建通用解决方案 - 始终为特定用例专门化
+- ❌ 不要忽略验证 - 每个步骤都必须包含验证
+- ❌ 不要假设知识 - 明确记录一切
+- ❌ 不要跳过示例 - 始终包含工作代码示例
+- ❌ 不要忘记边缘情况 - 包含错误处理和陷阱
 
-## 🔧 Tool Usage Standards
+## 🔧 工具使用标准
 
-- **Use web search extensively** for research and documentation
-- **Follow established command patterns** for slash commands
-- **Use validation loops** to ensure quality at each step
+- **广泛使用网络搜索**进行研究和文档编制
+- **遵循既定的命令模式**用于斜杠命令
+- **使用验证循环**确保每个步骤的质量
 
-These global rules apply regardless of whether you're generating templates, implementing features, or doing research. They form the foundation of effective context engineering work.
+这些全局规则适用于无论你是在生成模板、实现功能还是进行研究。它们构成了有效上下文工程工作的基础。

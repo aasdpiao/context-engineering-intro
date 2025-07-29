@@ -3,17 +3,17 @@ import postgres from "postgres";
 let dbInstance: postgres.Sql | null = null;
 
 /**
- * Get database connection singleton
- * Following the pattern from BASIC-DB-MCP.md but adapted for PostgreSQL with connection pooling
+ * 获取数据库连接单例
+ * 遵循 BASIC-DB-MCP.md 的模式，但适配了 PostgreSQL 的连接池
  */
 export function getDb(databaseUrl: string): postgres.Sql {
 	if (!dbInstance) {
 		dbInstance = postgres(databaseUrl, {
-			// Connection pool settings for Cloudflare Workers
-			max: 5, // Maximum 5 connections to fit within Workers' limit of 6 concurrent connections
+			// Cloudflare Workers 的连接池设置
+			max: 5, // 最多 5 个连接，以适应 Workers 6 个并发连接的限制
 			idle_timeout: 20,
 			connect_timeout: 10,
-			// Enable prepared statements for better performance
+			// 启用预处理语句以获得更好的性能
 			prepare: true,
 		});
 	}
@@ -21,15 +21,15 @@ export function getDb(databaseUrl: string): postgres.Sql {
 }
 
 /**
- * Close database connection pool
- * Call this when the Durable Object is shutting down
+ * 关闭数据库连接池
+ * 在 Durable Object 关闭时调用此方法
  */
 export async function closeDb(): Promise<void> {
 	if (dbInstance) {
 		try {
 			await dbInstance.end();
 		} catch (error) {
-			console.error('Error closing database connection:', error);
+			console.error('关闭数据库连接时出错:', error);
 		} finally {
 			dbInstance = null;
 		}

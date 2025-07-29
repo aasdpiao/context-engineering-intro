@@ -1,7 +1,7 @@
 import { z } from "zod";
 import type { AuthRequest, OAuthHelpers, ClientInfo } from "@cloudflare/workers-oauth-provider";
 
-// User context passed through OAuth
+// 通过 OAuth 传递的用户上下文
 export type Props = {
   login: string;
   name: string;
@@ -9,10 +9,10 @@ export type Props = {
   accessToken: string;
 };
 
-// Extended environment with OAuth provider
+// 带有 OAuth 提供者的扩展环境
 export type ExtendedEnv = Env & { OAUTH_PROVIDER: OAuthHelpers };
 
-// OAuth URL construction parameters
+// OAuth URL 构建参数
 export interface UpstreamAuthorizeParams {
   upstream_url: string;
   client_id: string;
@@ -21,7 +21,7 @@ export interface UpstreamAuthorizeParams {
   state?: string;
 }
 
-// OAuth token exchange parameters
+// OAuth 令牌交换参数
 export interface UpstreamTokenParams {
   code: string | undefined;
   upstream_url: string;
@@ -30,7 +30,7 @@ export interface UpstreamTokenParams {
   client_id: string;
 }
 
-// Approval dialog configuration
+// 批准对话框配置
 export interface ApprovalDialogOptions {
   client: ClientInfo | null;
   server: {
@@ -46,13 +46,13 @@ export interface ApprovalDialogOptions {
   cookieMaxAge?: number;
 }
 
-// Result of parsing approval form
+// 解析批准表单的结果
 export interface ParsedApprovalResult {
   state: any;
   headers: Record<string, string>;
 }
 
-// MCP tool schemas using Zod
+// 使用 Zod 的 MCP 工具模式
 export const ListTablesSchema = {};
 
 export const QueryDatabaseSchema = {
@@ -69,7 +69,7 @@ export const ExecuteDatabaseSchema = {
     .describe("SQL command to execute (INSERT, UPDATE, DELETE, CREATE, etc.)"),
 };
 
-// MCP response types
+// MCP 响应类型
 export interface McpTextContent {
   type: "text";
   text: string;
@@ -80,7 +80,7 @@ export interface McpResponse {
   content: McpTextContent[];
 }
 
-// Standard response creators
+// 标准响应创建器
 export function createSuccessResponse(message: string, data?: any): McpResponse {
   let text = `**Success**\n\n${message}`;
   if (data !== undefined) {
@@ -108,7 +108,7 @@ export function createErrorResponse(message: string, details?: any): McpResponse
   };
 }
 
-// Database operation result type
+// 数据库操作结果类型
 export interface DatabaseOperationResult<T = any> {
   success: boolean;
   data?: T;
@@ -116,11 +116,11 @@ export interface DatabaseOperationResult<T = any> {
   duration?: number;
 }
 
-// SQL validation result
+// SQL 验证结果
 export interface SqlValidationResult {
   isValid: boolean;
   error?: string;
 }
 
-// Re-export external types that are used throughout
+// 重新导出在整个项目中使用的外部类型
 export type { AuthRequest, OAuthHelpers, ClientInfo };

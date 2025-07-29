@@ -1,101 +1,101 @@
-# Template Generation Request
+# 模板生成请求
 
-## TECHNOLOGY/FRAMEWORK:
+## 技术/框架：
 
-**Example:** CrewAI multi-agent systems  
+**示例：** CrewAI 多代理系统  
 
-**Your technology:** Pydantic AI agents
-
----
-
-## TEMPLATE PURPOSE:
-
-**What specific use case should this template be optimized for?**
-
-**Your purpose:** Building intelligent AI agents with tool integration, conversation handling, and structured data validation using Pydantic AI framework
+**您的技术：** Pydantic AI 代理
 
 ---
 
-## CORE FEATURES:
+## 模板目的：
 
-**What are the essential features this template should help developers implement?**
+**此模板应针对哪个特定用例进行优化？**
 
-**Your core features:**
-
-- Agent creation with different model providers (OpenAI, Anthropic, Gemini)
-- Tool integration patterns (web search, file operations, API calls)
-- Conversation memory and context management
-- Structured output validation with Pydantic models
-- Error handling and retry mechanisms
-- Testing patterns for AI agent behavior
+**您的目的：** 使用 Pydantic AI 框架构建具有工具集成、对话处理和结构化数据验证的智能 AI 代理
 
 ---
 
-## EXAMPLES TO INCLUDE:
+## 核心功能：
 
-**What working examples should be provided in the template?**
+**此模板应帮助开发人员实现哪些基本功能？**
 
-**Your examples:**
+**您的核心功能：**
 
-- Basic chat agent with memory
-- Tool-enabled agent (web search + calculator)
-- Multi-step workflow agent
-- Agent with custom Pydantic models for structured outputs
-- Testing examples for agent responses and tool usage
-
----
-
-## DOCUMENTATION TO RESEARCH:
-
-**What specific documentation should be thoroughly researched and referenced?**
-
-**Your documentation:**
-- https://ai.pydantic.dev/ - Official Pydantic AI documentation
-- Model provider APIs (OpenAI, Anthropic) for integration patterns
-- Tool integration best practices and examples
+- 使用不同模型提供商（OpenAI、Anthropic、Gemini）创建代理
+- 工具集成模式（网络搜索、文件操作、API 调用）
+- 对话记忆和上下文管理
+- 使用 Pydantic 模型进行结构化输出验证
+- 错误处理和重试机制
+- AI 代理行为的测试模式
 
 ---
 
-## DEVELOPMENT PATTERNS:
+## 包含的示例：
 
-**What specific development patterns, project structures, or workflows should be researched and included?**
+**模板中应提供哪些工作示例？**
 
-**Your development patterns:**
-- How to structure agent modules and tool definitions
-- Configuration management for different model providers
-- Environment setup for development vs production
-- Logging and monitoring patterns for AI agents
+**您的示例：**
 
----
-
-## SECURITY & BEST PRACTICES:
-
-**What security considerations and best practices are critical for this technology?**
-
-**Your security considerations:**
-- API key management
-- Input validation and sanitization for agent inputs
-- Rate limiting and usage monitoring
-- Prompt injection prevention
-- Cost control and monitoring for model usage
+- 具有记忆功能的基本聊天代理
+- 启用工具的代理（网络搜索 + 计算器）
+- 多步骤工作流代理
+- 具有自定义 Pydantic 模型的结构化输出代理
+- 代理响应和工具使用的测试示例
 
 ---
 
-## COMMON GOTCHAS:
+## 需要研究的文档：
 
-**What are the typical pitfalls, edge cases, or complex issues developers face with this technology?**
+**应该彻底研究和引用哪些特定文档？**
 
-**Your gotchas:**
-- Handling model provider rate limits and errors
-- Managing conversation state across requests
-- Tool execution error handling and retries
+**您的文档：**
+- https://ai.pydantic.dev/ - 官方 Pydantic AI 文档
+- 模型提供商 API（OpenAI、Anthropic）的集成模式
+- 工具集成最佳实践和示例
 
 ---
 
-## VALIDATION REQUIREMENTS:
+## 开发模式：
 
-**What specific validation, testing, or quality checks should be included in the template?**
+**应该研究和包含哪些特定的开发模式、项目结构或工作流程？**
 
-**Your validation requirements:**
-- Tool unit testing testing
-- Agent unit testing
+**您的开发模式：**
+- 如何构建代理模块和工具定义
+- 不同模型提供商的配置管理
+- 开发与生产环境设置
+- AI 代理的日志记录和监控模式
+
+---
+
+## 安全和最佳实践：
+
+**对于此技术，哪些安全考虑和最佳实践是关键的？**
+
+**您的安全考虑：**
+- API 密钥管理
+- 代理输入的输入验证和清理
+- 速率限制和使用监控
+- 提示注入防护
+- 模型使用的成本控制和监控
+
+---
+
+## 常见陷阱：
+
+**开发人员在使用此技术时面临的典型陷阱、边缘情况或复杂问题是什么？**
+
+**您的陷阱：**
+- 处理模型提供商速率限制和错误
+- 跨请求管理对话状态
+- 工具执行错误处理和重试
+
+---
+
+## 验证要求：
+
+**模板中应包含哪些特定的验证、测试或质量检查？**
+
+**您的验证要求：**
+- 工具单元测试
+- 代理单元测试

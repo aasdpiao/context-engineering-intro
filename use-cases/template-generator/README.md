@@ -1,184 +1,184 @@
-# Template Generator - Meta-Framework for Context Engineering
+# 模板生成器 - 上下文工程元框架
 
-This template generator creates complete context engineering template packages for any technology domain. It's a meta-template that generates specialized templates for frameworks like Pydantic AI, Supabase, CrewAI, etc.
+这个模板生成器为任何技术领域创建完整的上下文工程模板包。它是一个元模板，为 Pydantic AI、Supabase、CrewAI 等框架生成专门的模板。
 
-## 🚀 Quick Start
+## 🚀 快速开始
 
 ```bash
-# 1. Define your template requirements in detail
-# Edit PRPs/INITIAL.md with specific technology and requirements
+# 1. 详细定义你的模板需求
+# 编辑 PRPs/INITIAL.md，指定具体的技术和需求
 
-# 2. Generate comprehensive template PRP
+# 2. 生成综合模板 PRP
 /generate-template-prp PRPs/INITIAL.md
 
-# 3. Execute the PRP to create complete template package
+# 3. 执行 PRP 创建完整的模板包
 /execute-template-prp PRPs/template-{technology-name}.md
 ```
 
-## 📚 What This Creates
+## 📚 生成内容
 
-This meta-template generates complete context engineering template packages with:
+这个元模板生成完整的上下文工程模板包，包含：
 
-### Generated Template Structure
+### 生成的模板结构
 ```
 use-cases/{technology-name}/
-├── CLAUDE.md                          # Technology-specific global rules
+├── CLAUDE.md                          # 技术特定的全局规则
 ├── .claude/commands/
-│   ├── generate-{tech}-prp.md        # Domain PRP generation
-│   └── execute-{tech}-prp.md         # Domain PRP execution
+│   ├── generate-{tech}-prp.md        # 领域 PRP 生成
+│   └── execute-{tech}-prp.md         # 领域 PRP 执行
 ├── PRPs/
 │   ├── templates/
-│   │   └── prp_{tech}_base.md        # Technology-specific base PRP
-│   ├── ai_docs/                      # Domain documentation
-│   └── INITIAL.md                    # Example feature request
-├── examples/                         # Technology-specific examples
-└── README.md                         # Usage guide
+│   │   └── prp_{tech}_base.md        # 技术特定的基础 PRP
+│   ├── ai_docs/                      # 领域文档
+│   └── INITIAL.md                    # 示例功能请求
+├── examples/                         # 技术特定的示例
+└── README.md                         # 使用指南
 ```
 
-### Template Features
+### 模板功能
 
-**Technology Specialization:**
-- Framework-specific global rules and patterns
-- Technology-appropriate validation loops
-- Domain-specific research methodologies
-- Framework-specialized documentation references
+**技术专业化：**
+- 框架特定的全局规则和模式
+- 技术适配的验证循环
+- 领域特定的研究方法论
+- 框架专门的文档引用
 
-**Web Research Integration:**
-- Extensive web search requirements for technology research
-- Official documentation gathering and analysis
-- Real-world pattern identification and extraction
-- Best practices and gotcha documentation
+**网络研究集成：**
+- 技术研究的广泛网络搜索需求
+- 官方文档收集和分析
+- 真实世界模式识别和提取
+- 最佳实践和陷阱文档
 
-**Context Engineering Adaptation:**
-- PRP framework adapted for specific technologies
-- Domain-appropriate success criteria
-- Technology-specific implementation blueprints
-- Framework-specialized validation gates
+**上下文工程适配：**
+- 针对特定技术适配的 PRP 框架
+- 领域适当的成功标准
+- 技术特定的实现蓝图
+- 框架专门的验证门控
 
-## 🔍 Research-Driven Approach
+## 🔍 研究驱动方法
 
-This meta-template emphasizes **extensive web research** as the foundation for creating high-quality templates:
+这个元模板强调**广泛的网络研究**作为创建高质量模板的基础：
 
-1. **Technology Deep Dive** - Comprehensive research of official docs, patterns, and best practices
-2. **Pattern Extraction** - Identification of real-world implementation patterns
-3. **Context Integration** - Adaptation of context engineering principles for the technology
-4. **Validation Design** - Creation of technology-appropriate testing and validation loops
+1. **技术深度挖掘** - 对官方文档、模式和最佳实践的全面研究
+2. **模式提取** - 识别真实世界的实现模式
+3. **上下文集成** - 为技术适配上下文工程原则
+4. **验证设计** - 创建技术适当的测试和验证循环
 
-## 📋 Usage Process
+## 📋 使用流程
 
-### 1. Define Requirements (PRPs/INITIAL.md)
+### 1. 定义需求 (PRPs/INITIAL.md)
 
-Be extremely specific about:
-- **Target technology/framework**
-- **Core features to support**
-- **Examples to include**
-- **Documentation to research**
-- **Development patterns**
-- **Security considerations**
-- **Common gotchas**
-- **Validation requirements**
+要极其具体地说明：
+- **目标技术/框架**
+- **要支持的核心功能**
+- **要包含的示例**
+- **要研究的文档**
+- **开发模式**
+- **安全考虑**
+- **常见陷阱**
+- **验证需求**
 
-### 2. Generate Template PRP
+### 2. 生成模板 PRP
 
 ```bash
 /generate-template-prp PRPs/INITIAL.md
 ```
 
-This will:
-- Conduct extensive web research on your specified technology
-- Analyze official documentation and best practices
-- Create comprehensive implementation blueprint
-- Design technology-specific validation loops
+这将：
+- 对你指定的技术进行广泛的网络研究
+- 分析官方文档和最佳实践
+- 创建综合实现蓝图
+- 设计技术特定的验证循环
 
-### 3. Execute Template Generation
+### 3. 执行模板生成
 
 ```bash
 /execute-template-prp PRPs/template-{technology-name}.md
 ```
 
-This will:
-- Create complete template package directory structure
-- Generate technology-specific CLAUDE.md with global rules
-- Create specialized PRP commands for the technology
-- Develop domain-specific base PRP template
-- Include working examples and comprehensive documentation
+这将：
+- 创建完整的模板包目录结构
+- 生成带有全局规则的技术特定 CLAUDE.md
+- 为技术创建专门的 PRP 命令
+- 开发领域特定的基础 PRP 模板
+- 包含工作示例和综合文档
 
-## 🎯 Template Quality Standards
+## 🎯 模板质量标准
 
-Generated templates include:
+生成的模板包括：
 
-**Comprehensive Research Foundation:**
-- Extensive web research on target technology
-- Official documentation analysis and integration
-- Real-world pattern identification
-- Best practices and gotcha documentation
+**综合研究基础：**
+- 对目标技术的广泛网络研究
+- 官方文档分析和集成
+- 真实世界模式识别
+- 最佳实践和陷阱文档
 
-**Technology Specialization:**
-- Framework-specific patterns and conventions
-- Domain-appropriate architectural guidance
-- Technology-specific validation and testing approaches
-- Integration patterns for common use cases
+**技术专业化：**
+- 框架特定的模式和约定
+- 领域适当的架构指导
+- 技术特定的验证和测试方法
+- 常见用例的集成模式
 
-**Context Engineering Integration:**
-- Proper adaptation of PRP framework principles
-- Technology-appropriate success criteria
-- Domain-specific research methodologies
-- Specialized validation loops and quality gates
+**上下文工程集成：**
+- PRP 框架原则的正确适配
+- 技术适当的成功标准
+- 领域特定的研究方法论
+- 专门的验证循环和质量门控
 
-## 🔧 Key Features
+## 🔧 关键功能
 
-### Web Research Emphasis
-- **Web search is your best friend** throughout the process
-- Comprehensive technology documentation analysis
-- Real-world implementation pattern identification
-- Community best practices research and integration
+### 网络研究重点
+- **网络搜索是你最好的朋友**，贯穿整个过程
+- 综合技术文档分析
+- 真实世界实现模式识别
+- 社区最佳实践研究和集成
 
-### Template Package Completeness
-- Complete directory structure with all required files
-- Technology-specific global rules and patterns
-- Specialized PRP generation and execution commands
-- Domain-appropriate base PRP templates
-- Working examples and comprehensive documentation
+### 模板包完整性
+- 包含所有必需文件的完整目录结构
+- 技术特定的全局规则和模式
+- 专门的 PRP 生成和执行命令
+- 领域适当的基础 PRP 模板
+- 工作示例和综合文档
 
-### Quality Validation
-- Multiple validation levels for template structure and content
-- Technology-specific testing and validation approaches
-- Integration testing with base context engineering framework
-- Usability validation for immediate developer productivity
+### 质量验证
+- 模板结构和内容的多级验证
+- 技术特定的测试和验证方法
+- 与基础上下文工程框架的集成测试
+- 即时开发者生产力的可用性验证
 
-## 📚 Examples of Templates You Can Generate
+## 📚 可生成模板示例
 
-- **Pydantic AI Agents** - AI agent development with tool integration
-- **Supabase Applications** - Full-stack apps with real-time features
-- **CrewAI Multi-Agents** - Complex multi-agent system development
-- **FastAPI Services** - High-performance API development
-- **React Applications** - Modern frontend development patterns
-- **Any Technology** - The system adapts to any framework or library
+- **Pydantic AI 代理** - 带工具集成的 AI 代理开发
+- **Supabase 应用程序** - 带实时功能的全栈应用
+- **CrewAI 多代理** - 复杂多代理系统开发
+- **FastAPI 服务** - 高性能 API 开发
+- **React 应用程序** - 现代前端开发模式
+- **任何技术** - 系统适配任何框架或库
 
-## 🚫 Anti-Patterns Avoided
+## 🚫 避免的反模式
 
-- ❌ Generic templates without technology specialization
-- ❌ Shallow research leading to incomplete patterns
-- ❌ Missing validation loops and quality gates
-- ❌ Ignoring framework-specific best practices
-- ❌ Incomplete documentation and examples
+- ❌ 没有技术专业化的通用模板
+- ❌ 浅层研究导致的不完整模式
+- ❌ 缺失验证循环和质量门控
+- ❌ 忽略框架特定的最佳实践
+- ❌ 不完整的文档和示例
 
-## 🔄 Continuous Improvement
+## 🔄 持续改进
 
-Templates generated with this system:
-- Are based on comprehensive, current research
-- Include real-world patterns and best practices
-- Provide immediate developer productivity
-- Can be updated as technologies evolve
-- Maintain consistency with context engineering principles
+使用此系统生成的模板：
+- 基于综合的、最新的研究
+- 包含真实世界的模式和最佳实践
+- 提供即时的开发者生产力
+- 可以随着技术发展而更新
+- 保持与上下文工程原则的一致性
 
-## 🎓 Philosophy
+## 🎓 哲学
 
-This meta-template embodies the principle that **context engineering can be applied to any technology domain** through:
+这个元模板体现了**上下文工程可以应用于任何技术领域**的原则，通过：
 
-1. **Deep Research** - Understanding the technology thoroughly
-2. **Pattern Extraction** - Identifying reusable implementation patterns
-3. **Context Integration** - Adapting context engineering principles
-4. **Quality Validation** - Ensuring templates work immediately and effectively
+1. **深度研究** - 彻底理解技术
+2. **模式提取** - 识别可重用的实现模式
+3. **上下文集成** - 适配上下文工程原则
+4. **质量验证** - 确保模板立即有效工作
 
-The result is a systematic approach to creating high-quality, immediately usable context engineering templates for any technology domain.
+结果是一种系统性方法，为任何技术领域创建高质量、立即可用的上下文工程模板。

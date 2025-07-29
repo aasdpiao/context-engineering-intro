@@ -2,8 +2,8 @@ import postgres from "postgres";
 import { getDb } from "./connection";
 
 /**
- * Execute a database operation with proper connection management
- * Following the pattern from BASIC-DB-MCP.md but adapted for PostgreSQL
+ * 执行数据库操作并进行适当的连接管理
+ * 遵循 BASIC-DB-MCP.md 的模式，但适配了 PostgreSQL
  */
 export async function withDatabase<T>(
 	databaseUrl: string,
@@ -14,14 +14,14 @@ export async function withDatabase<T>(
 	try {
 		const result = await operation(db);
 		const duration = Date.now() - startTime;
-		console.log(`Database operation completed successfully in ${duration}ms`);
+		console.log(`数据库操作在 ${duration}ms 内成功完成`);
 		return result;
 	} catch (error) {
 		const duration = Date.now() - startTime;
-		console.error(`Database operation failed after ${duration}ms:`, error);
-		// Re-throw the error so it can be caught by Sentry in the calling code
+		console.error(`数据库操作在 ${duration}ms 后失败:`, error);
+		// 重新抛出错误，以便调用代码中的 Sentry 可以捕获
 		throw error;
 	}
-	// Note: With PostgreSQL connection pooling, we don't close individual connections
-	// They're returned to the pool automatically. The pool is closed when the Durable Object shuts down.
+	// 注意：使用 PostgreSQL 连接池时，我们不关闭单个连接
+	// 它们会自动返回到池中。池在 Durable Object 关闭时关闭。
 }

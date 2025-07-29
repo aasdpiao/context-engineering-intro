@@ -1,17 +1,17 @@
-# MCP Server Development Patterns
+# MCP 服务器开发模式
 
-This document contains proven patterns for developing Model Context Protocol (MCP) servers using TypeScript and Cloudflare Workers, based on the implementation in this codebase.
+本文档包含基于此代码库实现的使用 TypeScript 和 Cloudflare Workers 开发模型上下文协议（MCP）服务器的经过验证的模式。
 
-## Core MCP Server Architecture
+## 核心 MCP 服务器架构
 
-### Base Server Class Pattern
+### 基础服务器类模式
 
 ```typescript
 import { McpAgent } from "agents/mcp";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 
-// Authentication props from OAuth flow
+// 来自 OAuth 流程的认证属性
 type Props = {
   login: string;
   name: string;
@@ -21,76 +21,76 @@ type Props = {
 
 export class CustomMCP extends McpAgent<Env, Record<string, never>, Props> {
   server = new McpServer({
-    name: "Your MCP Server Name",
+    name: "您的 MCP 服务器名称",
     version: "1.0.0",
   });
 
-  // CRITICAL: Implement cleanup for Durable Objects
+  // 关键：为 Durable Objects 实现清理
   async cleanup(): Promise<void> {
     try {
-      // Close database connections
+      // 关闭数据库连接
       await closeDb();
-      console.log('Database connections closed successfully');
+      console.log('数据库连接已成功关闭');
     } catch (error) {
-      console.error('Error during database cleanup:', error);
+      console.error('数据库清理过程中出错:', error);
     }
   }
 
-  // CRITICAL: Durable Objects alarm handler
+  // 关键：Durable Objects 告警处理器
   async alarm(): Promise<void> {
     await this.cleanup();
   }
 
-  // Initialize all tools and resources
+  // 初始化所有工具和资源
   async init() {
-    // Register tools here
+    // 在此处注册工具
     this.registerTools();
     
-    // Register resources if needed
+    // 如果需要，注册资源
     this.registerResources();
   }
 
   private registerTools() {
-    // Tool registration logic
+    // 工具注册逻辑
   }
 
   private registerResources() {
-    // Resource registration logic
+    // 资源注册逻辑
   }
 }
 ```
 
-### Tool Registration Pattern
+### 工具注册模式
 
 ```typescript
-// Basic tool registration
+// 基础工具注册
 this.server.tool(
   "toolName",
-  "Tool description for the LLM",
+  "为 LLM 提供的工具描述",
   {
-    param1: z.string().describe("Parameter description"),
-    param2: z.number().optional().describe("Optional parameter"),
+    param1: z.string().describe("参数描述"),
+    param2: z.number().optional().describe("可选参数"),
   },
   async ({ param1, param2 }) => {
     try {
-      // Tool implementation
+      // 工具实现
       const result = await performOperation(param1, param2);
       
       return {
         content: [
           {
             type: "text",
-            text: `Success: ${JSON.stringify(result, null, 2)}`
+            text: `成功: ${JSON.stringify(result, null, 2)}`
           }
         ]
       };
     } catch (error) {
-      console.error('Tool error:', error);
+      console.error('工具错误:', error);
       return {
         content: [
           {
             type: "text",
-            text: `Error: ${error.message}`,
+            text: `错误: ${error.message}`,
             isError: true
           }
         ]
@@ -100,61 +100,102 @@ this.server.tool(
 );
 ```
 
-### Conditional Tool Registration (Based on Permissions)
+### 基于权限的条件工具注册
 
 ```typescript
-// Permission-based tool availability
+// 基于权限的工具可用性
 const ALLOWED_USERNAMES = new Set<string>([
   'admin1',
   'admin2'
 ]);
 
-// Register privileged tools only for authorized users
+// 仅为授权用户注册特权工具
 if (ALLOWED_USERNAMES.has(this.props.login)) {
   this.server.tool(
     "privilegedTool",
-    "Tool only available to authorized users",
-    { /* parameters */ },
+    "仅授权用户可用的工具",
+    { /* 参数 */ },
     async (params) => {
-      // Privileged operation
+      // 特权操作
       return {
         content: [
           {
             type: "text",
-            text: `Privileged operation executed by: ${this.props.login}`
+            text: `特权操作由以下用户执行: ${this.props.login}`
           }
         ]
       };
     }
   );
 }
+
+// 根据用户权限注册工具
+private registerTools() {
+  // 始终可用的工具
+  this.registerReadOnlyTools();
+  
+  // 基于权限的条件工具
+  if (hasPermission(this.props.login, 'write')) {
+    this.registerWriteTools();
+  }
+  
+  if (hasPermission(this.props.login, 'admin')) {
+    this.registerAdminTools();
+  }
+}
+
+private registerReadOnlyTools() {
+  this.server.tool(
+    "read_data",
+    "从数据库读取数据",
+    { /* 工具定义 */ },
+    async (params) => {
+      // 实现
+    }
+  );
+}
+
+private registerWriteTools() {
+  this.server.tool(
+    "write_data",
+    "向数据库写入数据",
+    { /* 工具定义 */ },
+    async (params) => {
+      // 在处理器中始终双重检查权限
+      if (!hasPermission(this.props.login, 'write')) {
+        return createErrorResponse(new Error("访问被拒绝"), "权限检查");
+      }
+      // 实现
+    }
+  );
+}
 ```
 
-## Database Integration Patterns
+## 数据库集成模式
 
-### Database Connection Pattern
+### 数据库连接模式
 
 ```typescript
 import { withDatabase, validateSqlQuery, isWriteOperation, formatDatabaseError } from "./database";
 
-// Database operation with connection management
+// 带连接管理的数据库操作
 async function performDatabaseOperation(sql: string) {
   try {
-    // Validate SQL query
+    // 验证 SQL 查询
     const validation = validateSqlQuery(sql);
     if (!validation.isValid) {
       return {
         content: [
           {
             type: "text",
-            text: `Invalid SQL query: ${validation.error}`,
+            text: `无效的 SQL 查询: ${validation.error}`,
             isError: true
           }
         ]
       };
     }
 
-    // Execute with automatic connection management
+    // 使用自动连接管理执行
     return await withDatabase(this.env.DATABASE_URL, async (db) => {
       const results = await db.unsafe(sql);
       
@@ -162,18 +203,18 @@ async function performDatabaseOperation(sql: string) {
         content: [
           {
             type: "text",
-            text: `**Query Results**\n\`\`\`sql\n${sql}\n\`\`\`\n\n**Results:**\n\`\`\`json\n${JSON.stringify(results, null, 2)}\n\`\`\`\n\n**Rows returned:** ${Array.isArray(results) ? results.length : 1}`
+            text: `**查询结果**\n\`\`\`sql\n${sql}\n\`\`\`\n\n**结果:**\n\`\`\`json\n${JSON.stringify(results, null, 2)}\n\`\`\`\n\n**返回行数:** ${Array.isArray(results) ? results.length : 1}`
           }
         ]
       };
     });
   } catch (error) {
-    console.error('Database operation error:', error);
+    console.error('数据库操作错误:', error);
     return {
       content: [
         {
           type: "text",
-          text: `Database error: ${formatDatabaseError(error)}`,
+          text: `数据库错误: ${formatDatabaseError(error)}`,
           isError: true
         }
       ]
@@ -182,16 +223,16 @@ async function performDatabaseOperation(sql: string) {
 }
 ```
 
-### Read vs Write Operation Handling
+### 读写操作处理
 
 ```typescript
-// Check if operation is read-only
+// 检查操作是否为只读
 if (isWriteOperation(sql)) {
   return {
     content: [
       {
         type: "text",
-        text: "Write operations are not allowed with this tool. Use the privileged tool if you have write permissions.",
+        text: "此工具不允许写操作。如果您有写权限，请使用特权工具。",
         isError: true
       }
     ]
@@ -199,15 +240,15 @@ if (isWriteOperation(sql)) {
 }
 ```
 
-## Authentication & Authorization Patterns
+## 身份验证和授权模式
 
-### OAuth Integration Pattern
+### OAuth 集成模式
 
 ```typescript
 import OAuthProvider from "@cloudflare/workers-oauth-provider";
 import { GitHubHandler } from "./github-handler";
 
-// OAuth configuration
+// OAuth 配置
 export default new OAuthProvider({
   apiHandlers: {
     '/sse': MyMCP.serveSSE('/sse') as any,
@@ -220,10 +261,10 @@ export default new OAuthProvider({
 });
 ```
 
-### User Permission Checking
+### 用户权限检查
 
 ```typescript
-// Permission validation pattern
+// 权限验证模式
 function hasPermission(username: string, operation: string): boolean {
   const WRITE_PERMISSIONS = new Set(['admin1', 'admin2']);
   const READ_PERMISSIONS = new Set(['user1', 'user2', ...WRITE_PERMISSIONS]);
@@ -239,20 +280,20 @@ function hasPermission(username: string, operation: string): boolean {
 }
 ```
 
-## Error Handling Patterns
+## 错误处理模式
 
-### Standardized Error Response
+### 标准化错误响应
 
 ```typescript
-// Error response pattern
+// 错误响应模式
 function createErrorResponse(error: Error, operation: string) {
-  console.error(`${operation} error:`, error);
+  console.error(`${operation} 错误:`, error);
   
   return {
     content: [
       {
         type: "text",
-        text: `${operation} failed: ${error.message}`,
+        text: `${operation} 失败: ${error.message}`,
         isError: true
       }
     ]
@@ -260,20 +301,20 @@ function createErrorResponse(error: Error, operation: string) {
 }
 ```
 
-### Database Error Formatting
+### 数据库错误格式化
 
 ```typescript
-// Use the built-in database error formatter
+// 使用内置的数据库错误格式化器
 import { formatDatabaseError } from "./database";
 
 try {
-  // Database operation
+  // 数据库操作
 } catch (error) {
   return {
     content: [
       {
         type: "text",
-        text: `Database error: ${formatDatabaseError(error)}`,
+        text: `数据库错误: ${formatDatabaseError(error)}`,
         isError: true
       }
     ]
@@ -281,15 +322,15 @@ try {
 }
 ```
 
-## Resource Registration Patterns
+## 资源注册模式
 
-### Basic Resource Pattern
+### 基础资源模式
 
 ```typescript
-// Resource registration
+// 资源注册
 this.server.resource(
   "resource://example/{id}",
-  "Resource description",
+  "资源描述",
   async (uri) => {
     const id = uri.path.split('/').pop();
     
@@ -306,90 +347,90 @@ this.server.resource(
         ]
       };
     } catch (error) {
-      throw new Error(`Failed to fetch resource: ${error.message}`);
+      throw new Error(`获取资源失败: ${error.message}`);
     }
   }
 );
 ```
 
-## Testing Patterns
+## 测试模式
 
-### Tool Testing Pattern
+### 工具测试模式
 
 ```typescript
-// Test tool functionality
+// 测试工具功能
 async function testTool(toolName: string, params: any) {
   try {
     const result = await server.callTool(toolName, params);
-    console.log(`${toolName} test passed:`, result);
+    console.log(`${toolName} 测试通过:`, result);
     return true;
   } catch (error) {
-    console.error(`${toolName} test failed:`, error);
+    console.error(`${toolName} 测试失败:`, error);
     return false;
   }
 }
 ```
 
-### Database Connection Testing
+### 数据库连接测试
 
 ```typescript
-// Test database connectivity
+// 测试数据库连接
 async function testDatabaseConnection() {
   try {
     await withDatabase(process.env.DATABASE_URL, async (db) => {
       const result = await db`SELECT 1 as test`;
-      console.log('Database connection test passed:', result);
+      console.log('数据库连接测试通过:', result);
     });
     return true;
   } catch (error) {
-    console.error('Database connection test failed:', error);
+    console.error('数据库连接测试失败:', error);
     return false;
   }
 }
 ```
 
-## Security Best Practices
+## 安全最佳实践
 
-### Input Validation
+### 输入验证
 
 ```typescript
-// Always validate inputs with Zod
+// 始终使用 Zod 验证输入
 const inputSchema = z.object({
   query: z.string().min(1).max(1000),
   parameters: z.array(z.string()).optional()
 });
 
-// In tool handler
+// 在工具处理器中
 try {
   const validated = inputSchema.parse(params);
-  // Use validated data
+  // 使用验证后的数据
 } catch (error) {
-  return createErrorResponse(error, "Input validation");
+  return createErrorResponse(error, "输入验证");
 }
 ```
 
-### SQL Injection Prevention
+### SQL 注入防范
 
 ```typescript
-// Use the built-in SQL validation
+// 使用内置的 SQL 验证
 import { validateSqlQuery } from "./database";
 
 const validation = validateSqlQuery(sql);
 if (!validation.isValid) {
-  return createErrorResponse(new Error(validation.error), "SQL validation");
+  return createErrorResponse(new Error(validation.error), "SQL 验证");
 }
 ```
 
-### Access Control
+### 访问控制
 
 ```typescript
-// Always check permissions before executing sensitive operations
+// 在执行敏感操作前始终检查权限
 if (!hasPermission(this.props.login, 'write')) {
   return {
     content: [
       {
         type: "text",
-        text: "Access denied: insufficient permissions",
+        text: "访问被拒绝：权限不足",
         isError: true
       }
     ]
@@ -397,82 +438,82 @@ if (!hasPermission(this.props.login, 'write')) {
 }
 ```
 
-## Performance Patterns
+## 性能模式
 
-### Connection Pooling
+### 连接池
 
 ```typescript
-// Use the built-in connection pooling
+// 使用内置的连接池
 import { withDatabase } from "./database";
 
-// The withDatabase function handles connection pooling automatically
+// withDatabase 函数自动处理连接池
 await withDatabase(databaseUrl, async (db) => {
-  // Database operations
+  // 数据库操作
 });
 ```
 
-### Resource Cleanup
+### 资源清理
 
 ```typescript
-// Implement proper cleanup in Durable Objects
+// 在 Durable Objects 中实现适当的清理
 async cleanup(): Promise<void> {
   try {
-    // Close database connections
+    // 关闭数据库连接
     await closeDb();
     
-    // Clean up other resources
+    // 清理其他资源
     await cleanupResources();
     
-    console.log('Cleanup completed successfully');
+    console.log('清理成功完成');
   } catch (error) {
-    console.error('Cleanup error:', error);
+    console.error('清理错误:', error);
   }
 }
 ```
 
-## Common Gotchas
+## 常见陷阱
 
-### 1. Missing Cleanup Implementation
-- Always implement `cleanup()` method in Durable Objects
-- Handle database connection cleanup properly
-- Set up alarm handler for automatic cleanup
+### 1. 缺少清理实现
+- 始终在 Durable Objects 中实现 `cleanup()` 方法
+- 正确处理数据库连接清理
+- 设置告警处理器进行自动清理
 
-### 2. SQL Injection Vulnerabilities
-- Always use `validateSqlQuery()` before executing SQL
-- Never concatenate user input directly into SQL strings
-- Use parameterized queries when possible
+### 2. SQL 注入漏洞
+- 在执行 SQL 前始终使用 `validateSqlQuery()`
+- 永远不要将用户输入直接连接到 SQL 字符串中
+- 尽可能使用参数化查询
 
-### 3. Permission Bypasses
-- Check permissions for every sensitive operation
-- Don't rely on tool registration alone for security
-- Always validate user identity from props
+### 3. 权限绕过
+- 为每个敏感操作检查权限
+- 不要仅依赖工具注册来保证安全
+- 始终从 props 验证用户身份
 
-### 4. Error Information Leakage
-- Use `formatDatabaseError()` to sanitize error messages
-- Don't expose internal system details in error responses
-- Log detailed errors server-side, return generic messages to client
+### 4. 错误信息泄露
+- 使用 `formatDatabaseError()` 清理错误消息
+- 不要在错误响应中暴露内部系统详情
+- 在服务器端记录详细错误，向客户端返回通用消息
 
-### 5. Resource Leaks
-- Always use `withDatabase()` for database operations
-- Implement proper error handling in async operations
-- Clean up resources in finally blocks
+### 5. 资源泄露
+- 始终使用 `withDatabase()` 进行数据库操作
+- 在异步操作中实现适当的错误处理
+- 在 finally 块中清理资源
 
-## Environment Configuration
+## 环境配置
 
-### Required Environment Variables
+### 必需的环境变量
 
 ```typescript
-// Environment type definition
+// 环境类型定义
 interface Env {
   DATABASE_URL: string;
   GITHUB_CLIENT_ID: string;
   GITHUB_CLIENT_SECRET: string;
   OAUTH_KV: KVNamespace;
-  // Add other bindings as needed
+  // 根据需要添加其他绑定
 }
 ```
 
-### Wrangler Configuration Pattern
+### Wrangler 配置模式
 
 ```toml
 # wrangler.toml
@@ -485,7 +526,7 @@ binding = "OAUTH_KV"
 id = "your-kv-namespace-id"
 
 [env.production]
-# Production-specific configuration
+# 生产环境特定配置
 ```
 
-This document provides the core patterns for building secure, scalable MCP servers using the proven architecture in this codebase.
+本文档提供了使用此代码库中经过验证的架构构建安全、可扩展的 MCP 服务器的核心模式。

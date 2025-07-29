@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 """
-MCP Server Template Copy Script
+MCP 服务器模板复制脚本
 
-Copies the complete MCP server context engineering template to a target directory
-for starting new MCP server development projects. Uses gitignore-aware copying
-to avoid copying build artifacts and dependencies.
+将完整的 MCP 服务器上下文工程模板复制到目标目录，
+用于启动新的 MCP 服务器开发项目。使用 gitignore 感知复制
+以避免复制构建产物和依赖项。
 
-Usage:
-    python copy_template.py <target_directory>
+用法:
+    python copy_template.py <目标目录>
 
-Example:
+示例:
     python copy_template.py my-mcp-server
     python copy_template.py /path/to/my-new-server
 """
@@ -25,13 +25,13 @@ import fnmatch
 
 def parse_gitignore(gitignore_path: Path) -> Set[str]:
     """
-    Parse .gitignore file and return set of patterns to ignore.
+    解析 .gitignore 文件并返回要忽略的模式集合。
     
     Args:
-        gitignore_path: Path to .gitignore file
+        gitignore_path: .gitignore 文件的路径
         
     Returns:
-        Set of gitignore patterns
+        gitignore 模式的集合
     """
     ignore_patterns = set()
     
@@ -42,9 +42,9 @@ def parse_gitignore(gitignore_path: Path) -> Set[str]:
         with open(gitignore_path, 'r', encoding='utf-8') as f:
             for line in f:
                 line = line.strip()
-                # Skip empty lines and comments
+                # 跳过空行和注释
                 if line and not line.startswith('#'):
-                    # Remove leading slash for consistency
+                    # 为保持一致性移除前导斜杠
                     pattern = line.lstrip('/')
                     ignore_patterns.add(pattern)
     except Exception as e:
@@ -55,36 +55,36 @@ def parse_gitignore(gitignore_path: Path) -> Set[str]:
 
 def should_ignore_path(path: Path, template_root: Path, ignore_patterns: Set[str]) -> bool:
     """
-    Check if a path should be ignored based on gitignore patterns.
+    根据 gitignore 模式检查路径是否应该被忽略。
     
     Args:
-        path: Path to check
-        template_root: Root directory of template
-        ignore_patterns: Set of gitignore patterns
+        path: 要检查的路径
+        template_root: 模板的根目录
+        ignore_patterns: gitignore 模式的集合
         
     Returns:
-        True if path should be ignored, False otherwise
+        如果路径应该被忽略则返回 True，否则返回 False
     """
-    # Get relative path from template root
+    # 获取相对于模板根目录的路径
     try:
         rel_path = path.relative_to(template_root)
     except ValueError:
         return False
     
-    # Convert to string with forward slashes
+    # 转换为使用正斜杠的字符串
     rel_path_str = str(rel_path).replace('\\', '/')
     
-    # Check against each ignore pattern
+    # 对每个忽略模式进行检查
     for pattern in ignore_patterns:
-        # Handle directory patterns (ending with /)
+        # 处理目录模式（以 / 结尾）
         if pattern.endswith('/'):
             pattern = pattern.rstrip('/')
             if rel_path_str.startswith(pattern + '/') or rel_path_str == pattern:
                 return True
-        # Handle glob patterns
+        # 处理通配符模式
         elif fnmatch.fnmatch(rel_path_str, pattern):
             return True
-        # Handle exact matches and prefix matches
+        # 处理精确匹配和前缀匹配
         elif rel_path_str == pattern or rel_path_str.startswith(pattern + '/'):
             return True
     
@@ -93,40 +93,40 @@ def should_ignore_path(path: Path, template_root: Path, ignore_patterns: Set[str
 
 def get_template_files() -> List[Tuple[str, str]]:
     """
-    Get list of template files to copy with their relative paths.
-    Uses gitignore-aware filtering to exclude build artifacts and dependencies.
+    获取要复制的模板文件列表及其相对路径。
+    使用 gitignore 感知过滤来排除构建产物和依赖项。
     
     Returns:
-        List of (source_path, relative_path) tuples
+        (源路径, 相对路径) 元组的列表
     """
     template_root = Path(__file__).parent
     files_to_copy = []
     
-    # Parse .gitignore patterns
+    # 解析 .gitignore 模式
     gitignore_path = template_root / '.gitignore'
     ignore_patterns = parse_gitignore(gitignore_path)
     
-    # Add the copy_template.py script itself to ignore patterns
+    # 将 copy_template.py 脚本本身添加到忽略模式中
     ignore_patterns.add('copy_template.py')
     
-    # Walk through all files in template directory
+    # 遍历模板目录中的所有文件
     for root, dirs, files in os.walk(template_root):
         root_path = Path(root)
         
-        # Filter out ignored directories
+        # 过滤掉被忽略的目录
         dirs[:] = [d for d in dirs if not should_ignore_path(root_path / d, template_root, ignore_patterns)]
         
         for file in files:
             file_path = root_path / file
             
-            # Skip if file should be ignored
+            # 如果文件应该被忽略则跳过
             if should_ignore_path(file_path, template_root, ignore_patterns):
                 continue
             
-            # Get relative path for target
+            # 获取目标的相对路径
             rel_path = file_path.relative_to(template_root)
             
-            # Rename README.md to README_TEMPLATE.md
+            # 将 README.md 重命名为 README_TEMPLATE.md
             if rel_path.name == 'README.md':
                 target_rel_path = rel_path.parent / 'README_TEMPLATE.md'
             else:
@@ -139,17 +139,17 @@ def get_template_files() -> List[Tuple[str, str]]:
 
 def create_directory_structure(target_dir: Path, files: List[Tuple[str, str]]) -> None:
     """
-    Create directory structure for all files.
+    为所有文件创建目录结构。
     
     Args:
-        target_dir: Target directory path
-        files: List of (source_path, relative_path) tuples
+        target_dir: 目标目录路径
+        files: (源路径, 相对路径) 元组的列表
     """
     directories = set()
     
     for _, rel_path in files:
         dir_path = target_dir / Path(rel_path).parent
-        if str(dir_path) != str(target_dir):  # Don't add root directory
+        if str(dir_path) != str(target_dir):  # 不添加根目录
             directories.add(dir_path)
     
     for directory in directories:
@@ -158,14 +158,14 @@ def create_directory_structure(target_dir: Path, files: List[Tuple[str, str]]) -
 
 def copy_template_files(target_dir: Path, files: List[Tuple[str, str]]) -> int:
     """
-    Copy all template files to target directory.
+    将所有模板文件复制到目标目录。
     
     Args:
-        target_dir: Target directory path
-        files: List of (source_path, relative_path) tuples
+        target_dir: 目标目录路径
+        files: (源路径, 相对路径) 元组的列表
     
     Returns:
-        Number of files copied successfully
+        成功复制的文件数量
     """
     copied_count = 0
     
@@ -184,13 +184,13 @@ def copy_template_files(target_dir: Path, files: List[Tuple[str, str]]) -> int:
 
 def validate_template_integrity(target_dir: Path) -> bool:
     """
-    Validate that essential template files were copied correctly.
+    验证基本模板文件是否正确复制。
     
     Args:
-        target_dir: Target directory path
+        target_dir: 目标目录路径
     
     Returns:
-        True if template appears complete, False otherwise
+        如果模板看起来完整则返回 True，否则返回 False
     """
     essential_files = [
         "CLAUDE.md",
@@ -221,10 +221,10 @@ def validate_template_integrity(target_dir: Path) -> bool:
 
 def print_next_steps(target_dir: Path) -> None:
     """
-    Print helpful next steps for using the template.
+    打印使用模板的有用后续步骤。
     
     Args:
-        target_dir: Target directory path
+        target_dir: 目标目录路径
     """
     print(f"""
 🎉 MCP Server template successfully copied to: {target_dir}
@@ -271,12 +271,12 @@ Happy MCP server building! 🤖
 
 
 def main():
-    """Main function for the copy template script."""
+    """复制模板脚本的主函数。"""
     parser = argparse.ArgumentParser(
-        description="Copy MCP Server context engineering template to a new project directory",
+        description="将 MCP 服务器上下文工程模板复制到新的项目目录",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
-Examples:
+示例:
   python copy_template.py my-mcp-server
   python copy_template.py /path/to/my-new-server
   python copy_template.py ../customer-support-mcp
@@ -285,19 +285,19 @@ Examples:
     
     parser.add_argument(
         "target_directory",
-        help="Target directory for the new MCP server project"
+        help="新 MCP 服务器项目的目标目录"
     )
     
     parser.add_argument(
         "--force",
         action="store_true",
-        help="Overwrite target directory if it exists"
+        help="如果目标目录存在则覆盖"
     )
     
     parser.add_argument(
         "--dry-run",
         action="store_true",
-        help="Show what would be copied without actually copying"
+        help="显示将要复制的内容而不实际复制"
     )
     
     if len(sys.argv) == 1:
@@ -306,56 +306,56 @@ Examples:
     
     args = parser.parse_args()
     
-    # Convert target directory to Path object
+    # 将目标目录转换为 Path 对象
     target_dir = Path(args.target_directory).resolve()
     
-    # Check if target directory exists
+    # 检查目标目录是否存在
     if target_dir.exists():
         if target_dir.is_file():
-            print(f"❌ Error: {target_dir} is a file, not a directory")
+            print(f"❌ 错误: {target_dir} 是一个文件，不是目录")
             return
         
         if list(target_dir.iterdir()) and not args.force:
-            print(f"❌ Error: {target_dir} is not empty")
-            print("Use --force to overwrite existing directory")
+            print(f"❌ 错误: {target_dir} 不为空")
+            print("使用 --force 覆盖现有目录")
             return
         
         if args.force and not args.dry_run:
-            print(f"⚠️  Overwriting existing directory: {target_dir}")
+            print(f"⚠️  覆盖现有目录: {target_dir}")
     
-    # Get list of files to copy
-    print("📂 Scanning MCP server template files...")
+    # 获取要复制的文件列表
+    print("📂 扫描 MCP 服务器模板文件...")
     files_to_copy = get_template_files()
     
     if not files_to_copy:
-        print("❌ Error: No template files found. Make sure you're running this from the template directory.")
+        print("❌ 错误: 未找到模板文件。请确保您在模板目录中运行此脚本。")
         return
     
-    print(f"Found {len(files_to_copy)} files to copy")
+    print(f"找到 {len(files_to_copy)} 个文件要复制")
     
     if args.dry_run:
-        print(f"\n🔍 Dry run - would copy to: {target_dir}")
+        print(f"\n🔍 试运行 - 将复制到: {target_dir}")
         for _, rel_path in files_to_copy:
             print(f"  → {rel_path}")
         return
     
-    # Create target directory and structure
-    print(f"\n📁 Creating directory structure in: {target_dir}")
+    # 创建目标目录和结构
+    print(f"\n📁 在以下位置创建目录结构: {target_dir}")
     target_dir.mkdir(parents=True, exist_ok=True)
     create_directory_structure(target_dir, files_to_copy)
     
-    # Copy files
-    print(f"\n📋 Copying template files:")
+    # 复制文件
+    print(f"\n📋 复制模板文件:")
     copied_count = copy_template_files(target_dir, files_to_copy)
     
-    # Validate template integrity
-    print(f"\n✅ Copied {copied_count}/{len(files_to_copy)} files successfully")
+    # 验证模板完整性
+    print(f"\n✅ 成功复制 {copied_count}/{len(files_to_copy)} 个文件")
     
     if validate_template_integrity(target_dir):
-        print("✅ Template integrity check passed")
+        print("✅ 模板完整性检查通过")
         print_next_steps(target_dir)
     else:
-        print("⚠️  Template may be incomplete. Check for missing files.")
+        print("⚠️  模板可能不完整。请检查缺失的文件。")
 
 
 if __name__ == "__main__":

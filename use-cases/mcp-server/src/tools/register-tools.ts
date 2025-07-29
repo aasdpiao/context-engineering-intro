@@ -3,12 +3,12 @@ import { Props } from "../types";
 import { registerDatabaseTools } from "../../examples/database-tools";
 
 /**
- * Register all MCP tools based on user permissions
+ * 基于用户权限注册所有 MCP 工具
  */
 export function registerAllTools(server: McpServer, env: Env, props: Props) {
-	// Register database tools
+	// 注册数据库工具
 	registerDatabaseTools(server, env, props);
 	
-	// Future tools can be registered here
+	// 未来的工具可以在这里注册
 	// registerOtherTools(server, env, props);
 }

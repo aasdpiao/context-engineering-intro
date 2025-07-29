@@ -13,7 +13,7 @@ export class MyMCP extends McpAgent<Env, Record<string, never>, Props> {
 	});
 
 	/**
-	 * Cleanup database connections when Durable Object is shutting down
+	 * 当 Durable Object 关闭时清理数据库连接
 	 */
 	async cleanup(): Promise<void> {
 		try {
@@ -25,14 +25,14 @@ export class MyMCP extends McpAgent<Env, Record<string, never>, Props> {
 	}
 
 	/**
-	 * Durable Objects alarm handler - used for cleanup
+	 * Durable Objects 警报处理程序 - 用于清理
 	 */
 	async alarm(): Promise<void> {
 		await this.cleanup();
 	}
 
 	async init() {
-		// Register all tools based on user permissions
+		// 根据用户权限注册所有工具
 		registerAllTools(this.server, this.env, this.props);
 	}
 }

@@ -8,12 +8,12 @@ import { closeDb } from "./database/connection";
 //@ts-ignore
 import { registerDatabaseToolsWithSentry } from "./tools/database-tools-sentry";
 
-// Sentry configuration helper
+// Sentry 配置助手
 function getSentryConfig(env: Env) {
 	return {
-		// You can disable Sentry by setting SENTRY_DSN to a falsey-value
+		// 您可以通过将 SENTRY_DSN 设置为假值来禁用 Sentry
 		dsn: (env as any).SENTRY_DSN,
-		// A sample rate of 1.0 means "capture all traces"
+		// 采样率 1.0 意味着"捕获所有跟踪"
 		tracesSampleRate: 1,
 	};
 }
@@ -25,33 +25,33 @@ export class MyMCP extends McpAgent<Env, Record<string, never>, Props> {
 	});
 
 	/**
-	 * Cleanup database connections when Durable Object is shutting down
+	 * 在 Durable Object 关闭时清理数据库连接
 	 */
 	async cleanup(): Promise<void> {
 		try {
 			await closeDb();
-			console.log('Database connections closed successfully');
+			console.log('数据库连接成功关闭');
 		} catch (error) {
-			console.error('Error during database cleanup:', error);
+			console.error('数据库清理过程中出错:', error);
 		}
 	}
 
 	/**
-	 * Durable Objects alarm handler - used for cleanup
+	 * Durable Objects 警报处理器 - 用于清理
 	 */
 	async alarm(): Promise<void> {
 		await this.cleanup();
 	}
 
 	async init() {
-		// Initialize Sentry
+		// 初始化 Sentry
 		const sentryConfig = getSentryConfig(this.env);
 		if (sentryConfig.dsn) {
-			// @ts-ignore - Sentry.init exists but types may not be complete
+			// @ts-ignore - Sentry.init 存在但类型可能不完整
 			Sentry.init(sentryConfig);
 		}
 
-		// Register all tools with Sentry instrumentation
+		// 使用 Sentry 仪表注册所有工具
 		registerDatabaseToolsWithSentry(this.server, this.env, this.props);
 	}
 }

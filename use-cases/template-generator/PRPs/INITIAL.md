@@ -1,202 +1,202 @@
-# Template Generation Request
+# 模板生成请求
 
-## TECHNOLOGY/FRAMEWORK:
+## 技术/框架：
 
-**Example:** Pydantic AI agents  
-**Example:** Supabase frontend applications  
-**Example:** CrewAI multi-agent systems  
+**示例：** Pydantic AI 代理  
+**示例：** Supabase 前端应用程序  
+**示例：** CrewAI 多代理系统  
 
-**Your technology:** [Specify the exact framework, library, or technology you want to create a context engineering template for]
-
----
-
-## TEMPLATE PURPOSE:
-
-**What specific use case should this template be optimized for?**
-
-**Example for Pydantic AI:** "Building intelligent AI agents with tool integration, conversation handling, and structured data validation using Pydantic AI framework"
-
-**Example for Supabase:** "Creating full-stack web applications with real-time data, authentication, and serverless functions using Supabase as the backend"
-
-**Your purpose:** [Be very specific about what developers should be able to build easily with this template]
+**您的技术：** [指定您想要为其创建上下文工程模板的确切框架、库或技术]
 
 ---
 
-## CORE FEATURES:
+## 模板目的：
 
-**What are the essential features this template should help developers implement?**
+**此模板应针对哪个特定用例进行优化？**
 
-**Example for Pydantic AI:**
-- Agent creation with different model providers (OpenAI, Anthropic, Gemini)
-- Tool integration patterns (web search, file operations, API calls)
-- Conversation memory and context management
-- Structured output validation with Pydantic models
-- Error handling and retry mechanisms
-- Testing patterns for AI agent behavior
+**Pydantic AI 示例：** "使用 Pydantic AI 框架构建具有工具集成、对话处理和结构化数据验证的智能 AI 代理"
 
-**Example for Supabase:**
-- Database schema design and migrations
-- Real-time subscriptions and live data updates
-- Row Level Security (RLS) policy implementation
-- Authentication flows (email, OAuth, magic links)
-- Serverless edge functions for backend logic
-- File storage and CDN integration
+**Supabase 示例：** "使用 Supabase 作为后端创建具有实时数据、身份验证和无服务器函数的全栈 Web 应用程序"
 
-**Your core features:** [List the specific capabilities developers should be able to implement easily]
+**您的目的：** [非常具体地说明开发人员应该能够使用此模板轻松构建什么]
 
 ---
 
-## EXAMPLES TO INCLUDE:
+## 核心功能：
 
-**What working examples should be provided in the template?**
+**此模板应帮助开发人员实现哪些基本功能？**
 
-**Example for Pydantic AI:**
-- Basic chat agent with memory
-- Tool-enabled agent (web search + calculator)
-- Multi-step workflow agent
-- Agent with custom Pydantic models for structured outputs
-- Testing examples for agent responses and tool usage
+**Pydantic AI 示例：**
+- 使用不同模型提供商（OpenAI、Anthropic、Gemini）创建代理
+- 工具集成模式（网络搜索、文件操作、API 调用）
+- 对话记忆和上下文管理
+- 使用 Pydantic 模型进行结构化输出验证
+- 错误处理和重试机制
+- AI 代理行为的测试模式
 
-**Example for Supabase:**
-- User authentication and profile management
-- Real-time chat or messaging system
-- File upload and sharing functionality
-- Multi-tenant application patterns
-- Database triggers and functions
+**Supabase 示例：**
+- 数据库架构设计和迁移
+- 实时订阅和实时数据更新
+- 行级安全（RLS）策略实现
+- 身份验证流程（电子邮件、OAuth、魔法链接）
+- 后端逻辑的无服务器边缘函数
+- 文件存储和 CDN 集成
 
-**Your examples:** [Specify concrete, working examples that should be included]
-
----
-
-## DOCUMENTATION TO RESEARCH:
-
-**What specific documentation should be thoroughly researched and referenced?**
-
-**Example for Pydantic AI:**
-- https://ai.pydantic.dev/ - Official Pydantic AI documentation
-- https://docs.pydantic.dev/ - Pydantic data validation library
-- Model provider APIs (OpenAI, Anthropic) for integration patterns
-- Tool integration best practices and examples
-- Testing frameworks for AI applications
-
-**Example for Supabase:**
-- https://supabase.com/docs - Complete Supabase documentation
-- https://supabase.com/docs/guides/auth - Authentication guide
-- https://supabase.com/docs/guides/realtime - Real-time features
-- Database design patterns and RLS policies
-- Edge functions development and deployment
-
-**Your documentation:** [List specific URLs and documentation sections to research deeply]
+**您的核心功能：** [列出开发人员应该能够轻松实现的具体功能]
 
 ---
 
-## DEVELOPMENT PATTERNS:
+## 包含的示例：
 
-**What specific development patterns, project structures, or workflows should be researched and included?**
+**模板中应提供哪些工作示例？**
 
-**Example for Pydantic AI:**
-- How to structure agent modules and tool definitions
-- Configuration management for different model providers
-- Environment setup for development vs production
-- Logging and monitoring patterns for AI agents
-- Version control patterns for prompts and agent configurations
+**Pydantic AI 示例：**
+- 具有记忆功能的基本聊天代理
+- 启用工具的代理（网络搜索 + 计算器）
+- 多步骤工作流代理
+- 具有自定义 Pydantic 模型的结构化输出代理
+- 代理响应和工具使用的测试示例
 
-**Example for Supabase:**
-- Frontend + Supabase project structure patterns
-- Local development workflow with Supabase CLI
-- Database migration and versioning strategies
-- Environment management (local, staging, production)
-- Testing strategies for full-stack Supabase applications
+**Supabase 示例：**
+- 用户身份验证和配置文件管理
+- 实时聊天或消息系统
+- 文件上传和共享功能
+- 多租户应用程序模式
+- 数据库触发器和函数
 
-**Your development patterns:** [Specify the workflow and organizational patterns to research]
-
----
-
-## SECURITY & BEST PRACTICES:
-
-**What security considerations and best practices are critical for this technology?**
-
-**Example for Pydantic AI:**
-- API key management and rotation
-- Input validation and sanitization for agent inputs
-- Rate limiting and usage monitoring
-- Prompt injection prevention
-- Cost control and monitoring for model usage
-
-**Example for Supabase:**
-- Row Level Security (RLS) policy design
-- API key vs JWT authentication patterns
-- Database security and access control
-- File upload security and virus scanning
-- Rate limiting and abuse prevention
-
-**Your security considerations:** [List technology-specific security patterns to research and document]
+**您的示例：** [指定应包含的具体工作示例]
 
 ---
 
-## COMMON GOTCHAS:
+## 需要研究的文档：
 
-**What are the typical pitfalls, edge cases, or complex issues developers face with this technology?**
+**应该彻底研究和引用哪些特定文档？**
 
-**Example for Pydantic AI:**
-- Model context length limitations and management
-- Handling model provider rate limits and errors
-- Token counting and cost optimization
-- Managing conversation state across requests
-- Tool execution error handling and retries
+**Pydantic AI 示例：**
+- https://ai.pydantic.dev/ - 官方 Pydantic AI 文档
+- https://docs.pydantic.dev/ - Pydantic 数据验证库
+- 模型提供商 API（OpenAI、Anthropic）的集成模式
+- 工具集成最佳实践和示例
+- AI 应用程序的测试框架
 
-**Example for Supabase:**
-- RLS policy debugging and testing
-- Real-time subscription performance with large datasets
-- Edge function cold starts and optimization
-- Database connection pooling in serverless environments
-- CORS configuration for different domains
+**Supabase 示例：**
+- https://supabase.com/docs - 完整的 Supabase 文档
+- https://supabase.com/docs/guides/auth - 身份验证指南
+- https://supabase.com/docs/guides/realtime - 实时功能
+- 数据库设计模式和 RLS 策略
+- 边缘函数开发和部署
 
-**Your gotchas:** [Identify the specific challenges developers commonly face]
-
----
-
-## VALIDATION REQUIREMENTS:
-
-**What specific validation, testing, or quality checks should be included in the template?**
-
-**Example for Pydantic AI:**
-- Agent response quality testing
-- Tool integration testing
-- Model provider fallback testing
-- Cost and performance benchmarking
-- Conversation flow validation
-
-**Example for Supabase:**
-- Database migration testing
-- RLS policy validation
-- Real-time functionality testing
-- Authentication flow testing
-- Edge function integration testing
-
-**Your validation requirements:** [Specify the testing and validation patterns needed]
+**您的文档：** [列出需要深入研究的特定 URL 和文档部分]
 
 ---
 
-## INTEGRATION FOCUS:
+## 开发模式：
 
-**What specific integrations or third-party services are commonly used with this technology?**
+**应该研究和包含哪些特定的开发模式、项目结构或工作流程？**
 
-**Example for Pydantic AI:**
-- Integration with vector databases (Pinecone, Weaviate)
-- Web scraping tools and APIs
-- External API integrations for tools
-- Monitoring services (Weights & Biases, LangSmith)
-- Deployment platforms (Modal, Replicate)
+**Pydantic AI 示例：**
+- 如何构建代理模块和工具定义
+- 不同模型提供商的配置管理
+- 开发与生产环境设置
+- AI 代理的日志记录和监控模式
+- 提示和代理配置的版本控制模式
 
-**Example for Supabase:**
-- Frontend frameworks (Next.js, React, Vue)
-- Payment processing (Stripe)
-- Email services (SendGrid, Resend)
-- File processing (image optimization, document parsing)
-- Analytics and monitoring tools
+**Supabase 示例：**
+- 前端 + Supabase 项目结构模式
+- 使用 Supabase CLI 的本地开发工作流程
+- 数据库迁移和版本控制策略
+- 环境管理（本地、暂存、生产）
+- 全栈 Supabase 应用程序的测试策略
 
-**Your integration focus:** [List the key integrations to research and include]
+**您的开发模式：** [指定要研究的工作流程和组织模式]
+
+---
+
+## 安全和最佳实践：
+
+**对于此技术，哪些安全考虑和最佳实践是关键的？**
+
+**Pydantic AI 示例：**
+- API 密钥管理和轮换
+- 代理输入的输入验证和清理
+- 速率限制和使用监控
+- 提示注入防护
+- 模型使用的成本控制和监控
+
+**Supabase 示例：**
+- 行级安全（RLS）策略设计
+- API 密钥与 JWT 身份验证模式
+- 数据库安全和访问控制
+- 文件上传安全和病毒扫描
+- 速率限制和滥用防护
+
+**您的安全考虑：** [列出要研究和记录的技术特定安全模式]
+
+---
+
+## 常见陷阱：
+
+**开发人员在使用此技术时面临的典型陷阱、边缘情况或复杂问题是什么？**
+
+**Pydantic AI 示例：**
+- 模型上下文长度限制和管理
+- 处理模型提供商速率限制和错误
+- 令牌计数和成本优化
+- 跨请求管理对话状态
+- 工具执行错误处理和重试
+
+**Supabase 示例：**
+- RLS 策略调试和测试
+- 大数据集的实时订阅性能
+- 边缘函数冷启动和优化
+- 无服务器环境中的数据库连接池
+- 不同域的 CORS 配置
+
+**您的陷阱：** [识别开发人员常见面临的具体挑战]
+
+---
+
+## 验证要求：
+
+**模板中应包含哪些特定的验证、测试或质量检查？**
+
+**Pydantic AI 示例：**
+- 代理响应质量测试
+- 工具集成测试
+- 模型提供商故障转移测试
+- 成本和性能基准测试
+- 对话流程验证
+
+**Supabase 示例：**
+- 数据库迁移测试
+- RLS 策略验证
+- 实时功能测试
+- 身份验证流程测试
+- 边缘函数集成测试
+
+**您的验证要求：** [指定所需的测试和验证模式]
+
+---
+
+## 集成焦点：
+
+**此技术通常与哪些特定集成或第三方服务一起使用？**
+
+**Pydantic AI 示例：**
+- 与向量数据库集成（Pinecone、Weaviate）
+- 网络抓取工具和 API
+- 工具的外部 API 集成
+- 监控服务（Weights & Biases、LangSmith）
+- 部署平台（Modal、Replicate）
+
+**Supabase 示例：**
+- 前端框架（Next.js、React、Vue）
+- 支付处理（Stripe）
+- 电子邮件服务（SendGrid、Resend）
+- 文件处理（图像优化、文档解析）
+- 分析和监控工具
+
+**您的集成焦点：** [列出要研究和包含的关键集成]
 
 ---
 

@@ -1,4 +1,4 @@
-### Example usage of the Anthropic API for Claude (model and API key are both environment variables)
+### 使用 Anthropic API 调用 Claude 的示例（模型和 API 密钥都是环境变量）
 
 const response = await fetch('https://api.anthropic.com/v1/messages', {
 method: 'POST',
@@ -18,11 +18,11 @@ body: JSON.stringify({
 });
 
 if (!response.ok) {
-throw new Error(`Anthropic API error: ${response.status} ${response.statusText}`);
+throw new Error(`Anthropic API 错误: ${response.status} ${response.statusText}`);
 }
 
 const result = await response.json();
 const content = (result as any).content[0].text;
 
-// Parse the JSON response
+// 解析 JSON 响应
 const aiTasks = JSON.parse(content);
